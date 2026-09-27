@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About — Krish Kalsi</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{opacity:.7}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1980px; box-sizing: border-box; background: {{t.bg}}; color: {{t.text}}; font-family: 'Geist', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column">
+
+<header style="height: 44px; flex-shrink: 0; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; background: {{t.bg}}; border-bottom: 1px solid {{t.line}}; font-size: 13px">
+<nav style="display: flex; align-items: center; gap: 28px">
+<a href="Main.dc.html" style="color: {{t.strong}}; font-weight: 500; text-decoration: none; padding: 12px 0">/KrishKalsi</a>
+<a href="Main.dc.html" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Work</a>
+<a href="Main.dc.html" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Research</a>
+<a href="About.dc.html" style="color: {{t.strong}}; text-decoration: none; padding: 12px 0">About</a>
+<a href="#cv" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">CV</a>
+<a href="Main.dc.html" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Contact</a>
+</nav>
+<div role="group" aria-label="Colour theme" style="display: flex; gap: 18px">
+<button onClick="{{setDark}}" aria-pressed="{{isDark}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.dCol}}; cursor: pointer"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.dCol}}; background: {{t.dDot}}"></span>Dark</button>
+<button onClick="{{setLight}}" aria-pressed="{{isLight}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.lCol}}; cursor: pointer"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.lCol}}; background: {{t.lDot}}"></span>Light</button>
+</div>
+</header>
+
+<main style="padding: 48px 64px 0; display: flex; flex-direction: column; gap: 40px">
+
+<section style="height: 600px; box-sizing: border-box; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: 1fr 480px">
+<div style="padding: 28px 36px 36px; display: flex; flex-direction: column; justify-content: space-between">
+<h1 style="margin: 0; font-size: 168px; line-height: 0.86; font-weight: 300; letter-spacing: -0.055em; color: {{t.strong}}">About</h1>
+<div>
+<p style="margin: 0; font-size: 25px; line-height: 1.38; letter-spacing: -0.01em; color: {{t.strong}}; max-width: 640px">I like work whose claims can be checked — against a guarantee, a baseline, or data the model hasn’t seen.</p>
+<p style="margin: 20px 0 0; font-size: 17px; line-height: 1.55; max-width: 600px">Outside class I’m usually modelling something I already enjoy: cricket, poker, markets.</p>
+</div>
+</div>
+<img src="../photos/laugh.jpg" alt="A motion-blurred photo of Krish laughing at night" style="display: block; width: 480px; height: 598px; object-fit: cover; object-position: 50% 35%; border-left: 1px solid {{t.line}}">
+</section>
+
+<section style="box-sizing: border-box; padding: 28px 36px 36px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: 300px 1fr; column-gap: 24px">
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Education:</div>
+<div style="display: flex; flex-direction: column">
+<div style="display: grid; grid-template-columns: 1fr 1fr 180px; column-gap: 24px; align-items: baseline; padding-bottom: 20px; border-bottom: 1px solid {{t.line}}"><span style="font-size: 22px; color: {{t.strong}}">B.Tech, Data Science</span><span style="font-size: 15px">NMIMS MPSTME, Mumbai</span><span style="text-align: right; font-size: 13px; text-transform: uppercase; color: {{t.strong}}">2024–28 · CGPA 8.43</span></div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 180px; column-gap: 24px; align-items: baseline; padding-top: 20px"><span style="font-size: 22px; color: {{t.strong}}">ICSE Grade 10</span><span style="font-size: 15px">Avalon Heights International School</span><span style="text-align: right; font-size: 13px; text-transform: uppercase; color: {{t.strong}}">2022 · 95.4%</span></div>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 28px 36px 40px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 72px">
+<div>
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Coursework:</div>
+<div style="margin-top: 32px; display: flex; flex-direction: column; gap: 24px">
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Probability &amp; statistics</div><div style="margin-top: 6px; font-size: 17px; line-height: 1.5; color: {{t.strong}}">Probability and Statistics, Stochastic Processes, Statistical Methods, Statistical Inference</div></div>
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Mathematics &amp; computing</div><div style="margin-top: 6px; font-size: 17px; line-height: 1.5; color: {{t.strong}}">Calculus, Linear Algebra &amp; ODEs, Optimization, Data Structures &amp; Algorithms, DBMS</div></div>
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.strong}}; background: {{t.strong}}"></span>This semester</div><div style="margin-top: 6px; font-size: 17px; line-height: 1.5; color: {{t.strong}}">Applied Time Series, Financial Derivatives, Foundations of Machine Learning</div></div>
+</div>
+</div>
+<div>
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Skills:</div>
+<div style="margin-top: 32px; display: flex; flex-direction: column; gap: 24px">
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Languages</div><div style="margin-top: 6px; font-size: 17px; line-height: 1.5; color: {{t.strong}}">Python, R, C++, Java, SQL, JavaScript</div></div>
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Methods</div><div style="margin-top: 6px; font-size: 17px; line-height: 1.5; color: {{t.strong}}">Monte Carlo simulation, econometrics, conformal prediction, portfolio optimisation, VaR</div></div>
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Tools</div><div style="margin-top: 6px; font-size: 17px; line-height: 1.5; color: {{t.strong}}">NumPy, pandas, scikit-learn, TensorFlow, Streamlit, Git, Tableau</div></div>
+</div>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 28px 36px 36px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 72px">
+<div>
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Certifications:</div>
+<div style="margin-top: 24px; display: flex; flex-direction: column; gap: 14px; font-size: 17px; color: {{t.strong}}">
+<div>Machine Learning Specialization — DeepLearning.AI</div>
+<div>Quantitative Research Simulation — JPMorgan Chase</div>
+<div>Investment Banking Simulation — JPMorgan Chase</div>
+</div>
+</div>
+<div>
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Beyond class:</div>
+<div style="margin-top: 24px; display: flex; flex-direction: column; gap: 14px; font-size: 17px; color: {{t.strong}}">
+<div>R&amp;D Executive, Social Conclave — gig-worker welfare</div>
+<div>Volunteer, Dynamic Welfare Group — food &amp; sanitation drives</div>
+</div>
+</div>
+</section>
+
+<section id="cv" style="height: 240px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; justify-content: space-between; align-items: flex-end">
+<div><div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">PDF · 2 pages · Sep 2026</div><div style="margin-top: 12px; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Curriculum vitae</div></div>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: {{t.strong}}; color: {{t.panel}}; font-size: 12px; text-transform: uppercase; text-decoration: none">Download ↓</a>
+</section>
+</main>
+
+<footer style="margin-top: auto; padding: 28px 64px 36px; display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; color: {{t.dim}}">
+<span>© 2026 Krish Kalsi</span>
+<span>krishkalsi9@gmail.com</span>
+<span>Back to top ↑</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":1980}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const light = st.light !== undefined ? st.light : this.props.theme === 'light';
+    const t = light
+      ? { bg: '#E4E4E0', panel: '#F1F1EE', line: '#B8B8B3', text: '#3A3A37', strong: '#0F0F0E', dim: '#6A6A66' }
+      : { bg: '#0A0A0A', panel: '#111111', line: '#383836', text: '#B9B9B5', strong: '#E9E9E5', dim: '#8A8A86' };
+    t.dDot = light ? 'transparent' : t.strong;
+    t.lDot = light ? t.strong : 'transparent';
+    t.dCol = light ? t.dim : t.strong;
+    t.lCol = light ? t.strong : t.dim;
+    return {
+      t: t, isDark: !light, isLight: light,
+      setDark: () => this.setState({ light: false }),
+      setLight: () => this.setState({ light: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

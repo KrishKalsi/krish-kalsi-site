@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Design tokens — dark is the default (also before next-themes runs). */
+:root,
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --panel: #111111;
+  --line: #383836;
+  --grid: #1c1c1b;
+  --dim: #8a8a86;
+  --text: #b9b9b5;
+  --strong: #e9e9e5;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #e4e4e0;
+  --panel: #f1f1ee;
+  --line: #b8b8b3;
+  --grid: #e2e2de;
+  --dim: #6a6a66;
+  --text: #3a3a37;
+  --strong: #0f0f0e;
+  color-scheme: light;
+}
+
+@theme inline {
+  /* Only the site's greys exist — Tailwind's default palette is removed. */
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-grid: var(--grid);
+  --color-dim: var(--dim);
+  --color-text: var(--text);
+  --color-strong: var(--strong);
+
+  /* Theme-switch grey ramp (fixed, not themed). */
+  --color-ramp-1: #f2f2f0;
+  --color-ramp-2: #d6d6d3;
+  --color-ramp-3: #bbbbb8;
+  --color-ramp-4: #a0a09d;
+  --color-ramp-5: #858582;
+  --color-ramp-6: #6b6b68;
+  --color-ramp-7: #52524f;
+  --color-ramp-8: #3b3b39;
+  --color-ramp-9: #262625;
+  --color-ramp-10: #141413;
+
+  --font-sans: var(--font-geist), "Helvetica Neue", sans-serif;
+  --font-mono: initial;
+
+  /* No rounded corners or shadows; rounded-full kept for circle markers. */
+  --radius-*: initial;
+  --radius-full: 9999px;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+}
+
+:focus-visible {
+  outline: 1px solid var(--strong);
+  outline-offset: 3px;
+}

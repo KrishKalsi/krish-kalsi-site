@@ -1,0 +1,119 @@
+# Site content — single source of truth
+
+Everything the site says. Use this wording exactly. Items marked **TODO** are missing and must stay as visible placeholders until Krish fills them in.
+
+## Profile
+
+- Name: Krish Kalsi
+- Monogram: KK©
+- Cover line: Data science student
+- Email: krishkalsi9@gmail.com
+- Based: Mumbai, India — 19.07°N 72.87°E
+- Menu-bar location: Mumbai, IST
+- Cover corner: Portfolio ’26
+- GitHub: **TODO** (URL)
+- LinkedIn: **TODO** (URL)
+- CV PDF: **TODO** — place at `public/cv/krish-kalsi-cv.pdf`
+
+## Home — About panel (01)
+
+Statement:
+> Third-year data science student at NMIMS, Mumbai. I build models whose claims can be checked — prediction intervals, simulations, forecasts — and I’m most at home where statistics meets markets.
+
+| Label | Value |
+|---|---|
+| Education: | B.Tech Data Science, NMIMS MPSTME / 2024–28 · CGPA 8.43 |
+| Focus: | Uncertainty quantification / Quant finance · Econometrics |
+| Now: | Conformal prediction lab / NHANES survey-design audit |
+| Open to: | Research internships / Summer 2027 |
+
+## Work (06)
+
+| No. | Area | Title | Detail | Link |
+|---|---|---|---|---|
+| 01 | Uncertainty | Conformal prediction lab | 90% coverage met on 5 datasets | `/work/conformal-prediction` (featured: filled circle) |
+| 02 | Stochastic processes | Markov model of T20 cricket | MAE ≈ 21 runs over 217 matches | GitHub TODO |
+| 03 | Markets · Live | ETF overlap detector | Look-through across 3,000+ securities | Live demo TODO · GitHub TODO |
+| 04 | Risk | Portfolio analytics | Efficient frontier · Monte Carlo VaR | GitHub TODO |
+| 05 | Simulation | Poker equity engine | 169 hands ranked from 500K+ showdowns | GitHub TODO |
+| 06 | Econometrics | Electricity demand | ≈ 5% CV error on 2,900 days | Live demo TODO · GitHub TODO |
+
+Longer background for each (for future project pages — do not put on the home page):
+- **01** Split conformal prediction and Conformalized Quantile Regression written from scratch, with tests that check the finite-sample coverage guarantee by averaging over repeated calibration splits. Both methods land on the 90% target across five benchmark datasets. In progress.
+- **02** Markov reward process fitted on IPL ball-by-ball data to estimate innings resources, as an alternative to Duckworth–Lewis–Stern tables. Monte Carlo over 217 matches: mean absolute error ≈ 21 runs, almost no bias. Residuals and uncertainty by wickets lost.
+- **03** Reads live fund-holdings disclosures; look-through exposure across 3,000+ securities, weighted overlap score between funds, HHI-based concentration. Open source, deployed. Python, pandas, Streamlit.
+- **04** Markowitz mean–variance optimisation via SLSQP; minimum-variance and maximum-Sharpe portfolios; historical, parametric and Monte Carlo VaR (Cholesky, 10,000 paths); Sharpe, Sortino, Calmar, drawdown.
+- **05** Monte Carlo Texas Hold’em simulator: equity, EV and call/fold, 10,000+ run-outs per scenario; all 169 starting hands ranked from 500,000+ showdowns; treys constant-time evaluator; sub-second.
+- **06** OLS on ~2,900 daily observations with weather and calendar features; AIC/BIC selection; VIF and residual diagnostics; weekday, seasonality and 2013–14 structural-break tests (t-tests, ANOVA); ≈ 5% CV error (75 MW RMSE); Ridge/Lasso/ElasticNet did not beat it.
+
+## Research (03)
+
+| Status | Title |
+|---|---|
+| In revision · 2026 | Autonomous stock trading: a comparative review |
+| Ongoing · 2026–27 · with Dr P. Kanikar | Survey design in medical ML: an NHANES audit |
+| Working paper · 2025 | Critical path method for quick-commerce logistics |
+
+Photo caption: By the water — Mumbai
+
+## Experience
+
+| Year | Organisation | Role |
+|---|---|---|
+| 2025 | Larsen & Toubro | Software engineering intern |
+| 2025–26 | Social Conclave, MPSTME | Research & development executive |
+| 2023 | Lydian Global | Research intern |
+
+Button: Download CV ↓
+
+## Contact
+
+- Title: Contact
+- Label: Mail: → krishkalsi9@gmail.com (large)
+- Links: GitHub ↗ · LinkedIn ↗ · CV ↓
+
+## Footer
+
+© 2026 Krish Kalsi · Designed & built in Mumbai · Back to top ↑
+
+## Project page — Conformal prediction (`/work/conformal-prediction`)
+
+- Breadcrumb: ← Work / 01 — right: (01) Uncertainty
+- Title: Conformal / prediction
+- Year: 2026 · Status: In progress · Stack: Python · NumPy · scikit-learn · Button: View code ↗ (GitHub TODO)
+- Abstract: Conformal prediction wraps any model in intervals that contain the truth with probability at least 1 − α. I implemented split conformal and CQR from scratch, then tested the guarantee over repeated calibration splits.
+- Result: **90%** — target coverage met on five benchmark datasets
+- Fig. 1 — Intervals on heteroscedastic data (interactive; see CLAUDE.md). Caption: "{Method} on synthetic data where noise grows with x. Filled dots are covered; open circles fall outside. Target: {1−α}."
+- Method: C(x) = [ μ̂(x) − q̂ , μ̂(x) + q̂ ] and 1 − α ≤ P( Y ∈ C(X) ) ≤ 1 − α + 1/(n+1) (render with KaTeX). Note: q̂ is the ⌈(n+1)(1−α)⌉-th smallest calibration score. CQR conformalises quantile estimates instead, so intervals widen where the noise does.
+- Limitations: Coverage is marginal, not conditional. · Exchangeability fails under time series and covariate shift. · Next: weighted and adaptive conformal methods.
+- Next — 02: Markov model of T20 cricket →
+
+## About page (`/about`)
+
+- Title: About
+- Statement: I like work whose claims can be checked — against a guarantee, a baseline, or data the model hasn’t seen.
+- Sub-line: Outside class I’m usually modelling something I already enjoy: cricket, poker, markets.
+- Education: B.Tech, Data Science — NMIMS MPSTME, Mumbai — 2024–28 · CGPA 8.43 / ICSE Grade 10 — Avalon Heights International School — 2022 · 95.4%
+- Coursework:
+  - Probability & statistics: Probability and Statistics, Stochastic Processes, Statistical Methods, Statistical Inference
+  - Mathematics & computing: Calculus, Linear Algebra & ODEs, Optimization, Data Structures & Algorithms, DBMS
+  - This semester (filled circle): Applied Time Series, Financial Derivatives, Foundations of Machine Learning
+- Skills:
+  - Languages: Python, R, C++, Java, SQL, JavaScript
+  - Methods: Monte Carlo simulation, econometrics, conformal prediction, portfolio optimisation, VaR
+  - Tools: NumPy, pandas, scikit-learn, TensorFlow, Streamlit, Git, Tableau
+- Certifications: Machine Learning Specialization — DeepLearning.AI / Quantitative Research Simulation — JPMorgan Chase / Investment Banking Simulation — JPMorgan Chase
+- Beyond class: R&D Executive, Social Conclave — gig-worker welfare / Volunteer, Dynamic Welfare Group — food & sanitation drives
+- CV panel: PDF · 2 pages · Sep 2026 — Curriculum vitae — Download ↓
+
+## Image alt text
+
+- street.jpg: Krish on a quiet street at night, looking down at his phone
+- harbour.jpg: Krish by the water at night, harbour lights behind him
+- rooftop.jpg: Krish standing by a railing against a grey night sky
+- laugh.jpg: A motion-blurred photo of Krish laughing at night
+
+## SEO
+
+- Title: Krish Kalsi — Data science, statistics & quant finance
+- Description: Personal site of Krish Kalsi, a data science student in Mumbai working on uncertainty quantification, statistical modelling and quantitative finance.

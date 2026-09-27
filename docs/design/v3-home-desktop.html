@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Krish Kalsi</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{opacity:.7}
+</style>
+</helmet>
+<div id="top" style="width: 1440px; height: 4240px; box-sizing: border-box; background: {{t.bg}}; color: {{t.text}}; font-family: 'Geist', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column">
+
+<header style="position: sticky; top: 0; z-index: 2; height: 44px; flex-shrink: 0; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; background: {{t.bg}}; border-bottom: 1px solid {{t.line}}; font-size: 13px">
+<nav style="display: flex; align-items: center; gap: 28px">
+<a href="#top" style="color: {{t.strong}}; font-weight: 500; text-decoration: none; padding: 12px 0">/KrishKalsi</a>
+<a href="#work" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Work</a>
+<a href="#research" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Research</a>
+<a href="#about" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">About</a>
+<a href="#" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">CV</a>
+<a href="#contact" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Contact</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 24px">
+<div role="group" aria-label="Colour theme" style="display: flex; gap: 18px">
+<button onClick="{{setDark}}" aria-pressed="{{isDark}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.dCol}}; cursor: pointer"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.dCol}}; background: {{t.dDot}}"></span>Dark</button>
+<button onClick="{{setLight}}" aria-pressed="{{isLight}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.lCol}}; cursor: pointer"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.lCol}}; background: {{t.lDot}}"></span>Light</button>
+</div>
+<span style="color: {{t.dim}}">Mumbai, IST</span>
+</div>
+</header>
+
+<main style="padding: 48px 64px 0; display: flex; flex-direction: column; gap: 40px">
+
+<section style="height: 760px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between">
+<div>
+<h1 style="margin: 0; font-size: 212px; line-height: 0.84; font-weight: 300; letter-spacing: -0.055em; color: {{t.strong}}">Krish Kalsi</h1>
+<p style="margin: 40px 0 0 8px; font-size: 22px; line-height: 1.4; max-width: 520px; color: {{t.text}}">Data science student</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; align-items: end; padding-left: 8px; font-size: 12px; line-height: 1.4; text-transform: uppercase">
+<div>
+<div style="font-size: 13px; font-weight: 600; letter-spacing: -0.02em; text-transform: none; color: {{t.strong}}">KK©</div>
+<button onClick="{{toggle}}" aria-label="Switch between dark and light mode" title="Switch theme" style="margin-top: 8px; display: flex; padding: 0; min-height: 24px; align-items: center; background: none; border: none; cursor: pointer">
+<span style="width: 11px; height: 9px; background: #F2F2F0"></span><span style="width: 11px; height: 9px; background: #D6D6D3"></span><span style="width: 11px; height: 9px; background: #BBBBB8"></span><span style="width: 11px; height: 9px; background: #A0A09D"></span><span style="width: 11px; height: 9px; background: #858582"></span><span style="width: 11px; height: 9px; background: #6B6B68"></span><span style="width: 11px; height: 9px; background: #52524F"></span><span style="width: 11px; height: 9px; background: #3B3B39"></span><span style="width: 11px; height: 9px; background: #262625"></span><span style="width: 11px; height: 9px; background: #141413; outline: 1px solid {{t.line}}"></span>
+</button>
+</div>
+<div><div style="color: {{t.dim}}">Mail:</div><a href="mailto:krishkalsi9@gmail.com" style="color: {{t.strong}}; text-decoration: none">krishkalsi9@gmail.com</a></div>
+<div><div style="color: {{t.dim}}">Based:</div><div style="color: {{t.strong}}">Mumbai, India — 19.07°N 72.87°E</div></div>
+<div style="text-align: right; font-size: 30px; font-weight: 300; letter-spacing: -0.03em; text-transform: none; color: {{t.strong}}">Portfolio ’26</div>
+</div>
+</section>
+
+<section id="about" style="height: 680px; box-sizing: border-box; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: 544px 1fr">
+<img src="../photos/street.jpg" alt="Krish on a quiet street at night, looking down at his phone" style="display: block; width: 544px; height: 678px; object-fit: cover; object-position: 50% 30%; border-right: 1px solid {{t.line}}">
+<div style="padding: 28px 36px 32px; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">About</h2>
+<span style="font-size: 13px; color: {{t.dim}}">(01)</span>
+</div>
+<div>
+<p style="margin: 0; font-size: 25px; line-height: 1.38; letter-spacing: -0.01em; color: {{t.strong}}">Third-year data science student at NMIMS, Mumbai. I build models whose claims can be checked — prediction intervals, simulations, forecasts — and I’m most at home where statistics meets markets.</p>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; font-size: 12px; line-height: 1.45; text-transform: uppercase">
+<div><div style="color: {{t.dim}}">Education:</div><div style="color: {{t.strong}}">B.Tech Data Science, NMIMS MPSTME<br>2024–28 · CGPA 8.43</div></div>
+<div><div style="color: {{t.dim}}">Focus:</div><div style="color: {{t.strong}}">Uncertainty quantification<br>Quant finance · Econometrics</div></div>
+<div><div style="color: {{t.dim}}">Now:</div><div style="color: {{t.strong}}">Conformal prediction lab<br>NHANES survey-design audit</div></div>
+<div><div style="color: {{t.dim}}">Open to:</div><div style="color: {{t.strong}}">Research internships<br>Summer 2027</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="work" style="height: 640px; box-sizing: border-box; padding: 28px 36px 40px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Work</h2>
+<span style="font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.dim}}">06</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 52px 24px; font-size: 20px; line-height: 1.25">
+<a href="Project.dc.html" style="display: flex; flex-direction: column; gap: 4px; color: {{t.strong}}; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.strong}}; background: {{t.strong}}"></span>01 — Uncertainty</span>
+<span style="margin-top: 6px; text-transform: uppercase">Conformal prediction lab</span>
+<span style="font-size: 15px; color: {{t.text}}">90% coverage met on 5 datasets</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 4px; color: {{t.strong}}; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>02 — Stochastic processes</span>
+<span style="margin-top: 6px; text-transform: uppercase">Markov model of T20 cricket</span>
+<span style="font-size: 15px; color: {{t.text}}">MAE ≈ 21 runs over 217 matches</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 4px; color: {{t.strong}}; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>03 — Markets · Live</span>
+<span style="margin-top: 6px; text-transform: uppercase">ETF overlap detector</span>
+<span style="font-size: 15px; color: {{t.text}}">Look-through across 3,000+ securities</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 4px; color: {{t.strong}}; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>04 — Risk</span>
+<span style="margin-top: 6px; text-transform: uppercase">Portfolio analytics</span>
+<span style="font-size: 15px; color: {{t.text}}">Efficient frontier · Monte Carlo VaR</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 4px; color: {{t.strong}}; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>05 — Simulation</span>
+<span style="margin-top: 6px; text-transform: uppercase">Poker equity engine</span>
+<span style="font-size: 15px; color: {{t.text}}">169 hands ranked from 500K+ showdowns</span>
+</a>
+<a href="#" style="display: flex; flex-direction: column; gap: 4px; color: {{t.strong}}; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>06 — Econometrics</span>
+<span style="margin-top: 6px; text-transform: uppercase">Electricity demand</span>
+<span style="font-size: 15px; color: {{t.text}}">≈ 5% CV error on 2,900 days</span>
+</a>
+</div>
+</section>
+
+<section id="research" style="height: 600px; box-sizing: border-box; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: 1fr 656px">
+<div style="padding: 28px 36px 40px; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Research</h2>
+<span style="font-size: 13px; color: {{t.dim}}">(03)</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 32px">
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>In revision · 2026</div><div style="margin-top: 8px; font-size: 21px; line-height: 1.3; color: {{t.strong}}">Autonomous stock trading: a comparative review</div></div>
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Ongoing · 2026–27 · with Dr P. Kanikar</div><div style="margin-top: 8px; font-size: 21px; line-height: 1.3; color: {{t.strong}}">Survey design in medical ML: an NHANES audit</div></div>
+<div><div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Working paper · 2025</div><div style="margin-top: 8px; font-size: 21px; line-height: 1.3; color: {{t.strong}}">Critical path method for quick-commerce logistics</div></div>
+</div>
+</div>
+<div style="position: relative; border-left: 1px solid {{t.line}}">
+<img src="../photos/harbour.jpg" alt="Krish by the water at night, harbour lights behind him" style="display: block; width: 656px; height: 598px; object-fit: cover; object-position: 60% 50%">
+<span style="position: absolute; left: 24px; bottom: 20px; font-size: 11px; letter-spacing: 0.02em; text-transform: uppercase; color: #CFCFCB">By the water — Mumbai</span>
+</div>
+</section>
+
+<section style="height: 400px; box-sizing: border-box; padding: 28px 36px 40px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Experience</h2>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid {{t.strong}}; font-size: 12px; text-transform: uppercase; color: {{t.strong}}; text-decoration: none">Download CV ↓</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; font-size: 20px; line-height: 1.25">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>2025</span><span style="margin-top: 6px; text-transform: uppercase; color: {{t.strong}}">Larsen &amp; Toubro</span><span style="font-size: 15px">Software engineering intern</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>2025–26</span><span style="margin-top: 6px; text-transform: uppercase; color: {{t.strong}}">Social Conclave, MPSTME</span><span style="font-size: 15px">Research &amp; development executive</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>2023</span><span style="margin-top: 6px; text-transform: uppercase; color: {{t.strong}}">Lydian Global</span><span style="font-size: 15px">Research intern</span></div>
+</div>
+</section>
+
+<section id="contact" style="height: 680px; box-sizing: border-box; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: 1fr 520px">
+<div style="padding: 28px 36px 40px; display: flex; flex-direction: column; justify-content: space-between">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Contact</h2>
+<div>
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Mail:</div>
+<a href="mailto:krishkalsi9@gmail.com" style="display: inline-block; margin-top: 8px; font-size: 56px; line-height: 1.05; font-weight: 300; letter-spacing: -0.04em; color: {{t.strong}}; text-decoration: none">krishkalsi9@gmail.com</a>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid {{t.line}}; font-size: 12px; text-transform: uppercase">
+<a href="#" style="display: flex; align-items: center; min-height: 52px; color: {{t.strong}}; text-decoration: none">GitHub ↗</a>
+<a href="#" style="display: flex; align-items: center; min-height: 52px; color: {{t.strong}}; text-decoration: none">LinkedIn ↗</a>
+<a href="#" style="display: flex; align-items: center; min-height: 52px; color: {{t.strong}}; text-decoration: none">CV ↓</a>
+</div>
+</div>
+</div>
+<img src="../photos/rooftop.jpg" alt="Krish standing by a railing against a grey night sky" style="display: block; width: 520px; height: 678px; object-fit: cover; object-position: 50% 40%; border-left: 1px solid {{t.line}}">
+</section>
+</main>
+
+<footer style="margin-top: auto; padding: 28px 64px 36px; display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; color: {{t.dim}}">
+<span>© 2026 Krish Kalsi</span>
+<span>Designed &amp; built in Mumbai</span>
+<a href="#top" style="color: {{t.dim}}; text-decoration: none">Back to top ↑</a>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":4240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const light = st.light !== undefined ? st.light : this.props.theme === 'light';
+    const t = light
+      ? { bg: '#E4E4E0', panel: '#F1F1EE', line: '#B8B8B3', text: '#3A3A37', strong: '#0F0F0E', dim: '#6A6A66' }
+      : { bg: '#0A0A0A', panel: '#111111', line: '#383836', text: '#B9B9B5', strong: '#E9E9E5', dim: '#8A8A86' };
+    t.dDot = light ? 'transparent' : t.strong;
+    t.lDot = light ? t.strong : 'transparent';
+    t.dCol = light ? t.dim : t.strong;
+    t.lCol = light ? t.strong : t.dim;
+    return {
+      t: t, isDark: !light, isLight: light,
+      setDark: () => this.setState({ light: false }),
+      setLight: () => this.setState({ light: true }),
+      toggle: () => this.setState({ light: !light })
+    };
+  }
+}
+</script>
+</body>
+</html>

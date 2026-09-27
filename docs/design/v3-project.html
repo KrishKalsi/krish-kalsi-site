@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Conformal prediction lab — Krish Kalsi</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}a:hover{opacity:.7}
+</style>
+</helmet>
+<div style="width: 1440px; height: 2700px; box-sizing: border-box; background: {{t.bg}}; color: {{t.text}}; font-family: 'Geist', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column">
+
+<header style="height: 44px; flex-shrink: 0; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; background: {{t.bg}}; border-bottom: 1px solid {{t.line}}; font-size: 13px">
+<nav style="display: flex; align-items: center; gap: 28px">
+<a href="Main.dc.html" style="color: {{t.strong}}; font-weight: 500; text-decoration: none; padding: 12px 0">/KrishKalsi</a>
+<a href="Main.dc.html" style="color: {{t.strong}}; text-decoration: none; padding: 12px 0">Work</a>
+<a href="Main.dc.html" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Research</a>
+<a href="About.dc.html" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">About</a>
+<a href="#" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">CV</a>
+<a href="Main.dc.html" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Contact</a>
+</nav>
+<div role="group" aria-label="Colour theme" style="display: flex; gap: 18px">
+<button onClick="{{setDark}}" aria-pressed="{{isDark}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.dCol}}; cursor: pointer"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.dCol}}; background: {{t.dDot}}"></span>Dark</button>
+<button onClick="{{setLight}}" aria-pressed="{{isLight}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.lCol}}; cursor: pointer"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.lCol}}; background: {{t.lDot}}"></span>Light</button>
+</div>
+</header>
+
+<main style="padding: 48px 64px 0; display: flex; flex-direction: column; gap: 40px">
+
+<section style="height: 580px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: {{t.dim}}"><a href="Main.dc.html" style="color: {{t.dim}}; text-decoration: none">← Work / 01</a><span>(01) Uncertainty</span></div>
+<h1 style="margin: 0; font-size: 168px; line-height: 0.86; font-weight: 300; letter-spacing: -0.055em; color: {{t.strong}}">Conformal<br>prediction</h1>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; align-items: end; font-size: 12px; line-height: 1.45; text-transform: uppercase">
+<div><div style="color: {{t.dim}}">Year:</div><div style="color: {{t.strong}}">2026</div></div>
+<div><div style="color: {{t.dim}}">Status:</div><div style="color: {{t.strong}}">In progress</div></div>
+<div><div style="color: {{t.dim}}">Stack:</div><div style="color: {{t.strong}}">Python · NumPy · scikit-learn</div></div>
+<div style="text-align: right"><a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid {{t.strong}}; color: {{t.strong}}; text-decoration: none">View code ↗</a></div>
+</div>
+</section>
+
+<section style="height: 380px; box-sizing: border-box; padding: 28px 36px 36px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 72px">
+<div style="display: flex; flex-direction: column; justify-content: space-between">
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Abstract:</div>
+<p style="margin: 0; font-size: 24px; line-height: 1.4; letter-spacing: -0.01em; color: {{t.strong}}">Conformal prediction wraps any model in intervals that contain the truth with probability at least 1 − α. I implemented split conformal and CQR from scratch, then tested the guarantee over repeated calibration splits.</p>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; text-align: right">
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Result:</div>
+<div><div style="font-size: 168px; line-height: 0.85; font-weight: 300; letter-spacing: -0.06em; color: {{t.strong}}">90%</div><div style="margin-top: 16px; font-size: 15px; color: {{t.text}}">target coverage met on five benchmark datasets</div></div>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: center">
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Fig. 1 — Intervals on heteroscedastic data</div>
+<div style="display: flex; gap: 24px">
+<div role="group" aria-label="Method" style="display: flex; border: 1px solid {{t.line}}">
+<sc-for list="{{methods}}" as="m" hint-placeholder-count="2">
+<sc-if value="{{m.on}}" hint-placeholder-val="{{true}}"><button onClick="{{m.pick}}" style="min-height: 40px; padding: 0 16px; border: none; background: {{t.strong}}; color: {{t.panel}}; font: inherit; font-size: 12px; text-transform: uppercase; cursor: pointer">{{m.label}}</button></sc-if>
+<sc-if value="{{m.off}}" hint-placeholder-val="{{false}}"><button onClick="{{m.pick}}" style="min-height: 40px; padding: 0 16px; border: none; background: transparent; color: {{t.text}}; font: inherit; font-size: 12px; text-transform: uppercase; cursor: pointer">{{m.label}}</button></sc-if>
+</sc-for>
+</div>
+<div role="group" aria-label="Miscoverage level alpha" style="display: flex; border: 1px solid {{t.line}}">
+<sc-for list="{{alphas}}" as="a" hint-placeholder-count="3">
+<sc-if value="{{a.on}}" hint-placeholder-val="{{false}}"><button onClick="{{a.pick}}" style="min-height: 40px; padding: 0 14px; border: none; background: {{t.strong}}; color: {{t.panel}}; font: inherit; font-size: 12px; cursor: pointer">{{a.label}}</button></sc-if>
+<sc-if value="{{a.off}}" hint-placeholder-val="{{true}}"><button onClick="{{a.pick}}" style="min-height: 40px; padding: 0 14px; border: none; background: transparent; color: {{t.text}}; font: inherit; font-size: 12px; cursor: pointer">{{a.label}}</button></sc-if>
+</sc-for>
+</div>
+</div>
+</div>
+<svg width="1238" height="420" style="display: block">
+<path d="M278 12V392M516 12V392M754 12V392M992 12V392M1230 12V392M40 297H1230M40 202H1230M40 107H1230M40 12H1230" style="stroke: {{t.grid}}; stroke-width: 1px; fill: none"></path>
+<path d="M40 12V392H1230" style="stroke: {{t.line}}; stroke-width: 1px; fill: none"></path>
+<path d="{{R.area}}" style="fill: {{t.strong}}; fill-opacity: 0.07; stroke: none"></path>
+<path d="{{R.up}}" style="stroke: {{t.strong}}; stroke-width: 1.2px; fill: none"></path>
+<path d="{{R.lower}}" style="stroke: {{t.strong}}; stroke-width: 1.2px; fill: none"></path>
+<path d="{{R.line}}" style="stroke: {{t.dim}}; stroke-width: 1px; stroke-dasharray: 3 4; fill: none"></path>
+<path d="{{R.pin}}" style="fill: {{t.dim}}; fill-opacity: 0.55"></path>
+<path d="{{R.pout}}" style="fill: none; stroke: {{t.strong}}; stroke-width: 1.2px"></path>
+<text x="32" y="300" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: end">0</text>
+<text x="32" y="205" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: end">3</text>
+<text x="32" y="110" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: end">6</text>
+<text x="32" y="16" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: end">9</text>
+<text x="40" y="412" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: middle">0</text>
+<text x="516" y="412" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: middle">2</text>
+<text x="992" y="412" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: middle">4</text>
+<text x="1230" y="412" style="font-family: 'Geist', sans-serif; font-size: 11px; fill: {{t.dim}}; text-anchor: end">x = 5</text>
+</svg>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; padding-top: 20px; border-top: 1px solid {{t.line}}">
+<div><div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Test coverage</div><div style="margin-top: 6px; font-size: 40px; font-weight: 300; letter-spacing: -0.03em; color: {{t.strong}}">{{R.cov}}</div></div>
+<div><div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Mean over 1,000 splits</div><div style="margin-top: 6px; font-size: 40px; font-weight: 300; letter-spacing: -0.03em; color: {{t.strong}}">{{R.mean}}</div></div>
+<div><div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Mean width</div><div style="margin-top: 6px; font-size: 40px; font-weight: 300; letter-spacing: -0.03em; color: {{t.strong}}">{{R.wid}}</div></div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: {{t.text}}">{{mname}} on synthetic data where noise grows with x. Filled dots are covered; open circles fall outside. Target: {{R.target}}.</p>
+</div>
+</section>
+
+<section style="height: 440px; box-sizing: border-box; padding: 28px 36px 36px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 72px">
+<div style="display: flex; flex-direction: column; justify-content: space-between">
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Method:</div>
+<div style="display: flex; flex-direction: column; gap: 20px; font-size: 26px; font-weight: 300; font-style: italic; color: {{t.strong}}">
+<div>C(x) = [ μ̂(x) − q̂ ,  μ̂(x) + q̂ ]</div>
+<div>1 − α ≤ P( Y ∈ C(X) ) ≤ 1 − α + 1/(n+1)</div>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: {{t.text}}">q̂ is the ⌈(n+1)(1−α)⌉-th smallest calibration score. CQR conformalises quantile estimates instead, so intervals widen where the noise does.</p>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: space-between">
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Limitations:</div>
+<div style="display: flex; flex-direction: column; gap: 22px; font-size: 18px; line-height: 1.4; color: {{t.strong}}">
+<div style="display: flex; gap: 12px"><span style="flex-shrink: 0; margin-top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Coverage is marginal, not conditional.</div>
+<div style="display: flex; gap: 12px"><span style="flex-shrink: 0; margin-top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Exchangeability fails under time series and covariate shift.</div>
+<div style="display: flex; gap: 12px"><span style="flex-shrink: 0; margin-top: 4px; width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>Next: weighted and adaptive conformal methods.</div>
+</div>
+</div>
+</section>
+
+<a href="#" style="height: 240px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between; color: {{t.strong}}; text-decoration: none">
+<span style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Next — 02</span>
+<span style="display: flex; justify-content: space-between; align-items: baseline; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em"><span>Markov model of T20 cricket</span><span>→</span></span>
+</a>
+</main>
+
+<footer style="margin-top: auto; padding: 28px 64px 36px; display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; color: {{t.dim}}">
+<span>© 2026 Krish Kalsi</span>
+<span>krishkalsi9@gmail.com</span>
+<span>Back to top ↑</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  rng(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  nrm(r) { let u = 0; while (u === 0) u = r(); const v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+  data() {
+    if (this._d) return this._d;
+    const r = this.rng(1107);
+    const fx = x => 2 * Math.sin(1.3 * x) + 0.6 * x;
+    const sd = x => 0.2 + 0.35 * x;
+    const gen = m => { const o = []; for (let i = 0; i < m; i++) { const x = 5 * r(); o.push({ x: x, y: fx(x) + sd(x) * this.nrm(r) }); } return o; };
+    const train = gen(800).sort((a, b) => a.x - b.x);
+    const pool = gen(1000);
+    this._d = { train: train, xs: train.map(p => p.x), pool: pool };
+    return this._d;
+  }
+  knn(x, a) {
+    const d = this.data(), train = d.train, xs = d.xs, k = 60;
+    let lo = 0, hi = xs.length;
+    while (lo < hi) { const m = (lo + hi) >> 1; if (xs[m] < x) lo = m + 1; else hi = m; }
+    let i = lo - 1, j = lo; const ys = [];
+    while (ys.length < k) {
+      if (i < 0) ys.push(train[j++].y);
+      else if (j >= xs.length) ys.push(train[i--].y);
+      else if (x - xs[i] <= xs[j] - x) ys.push(train[i--].y);
+      else ys.push(train[j++].y);
+    }
+    ys.sort((p, q) => p - q);
+    let s = 0; for (let t = 0; t < k; t++) s += ys[t];
+    const qt = p => { const h = (k - 1) * p, b = Math.floor(h), nx = b + 1 < k ? ys[b + 1] : ys[b]; return ys[b] + (h - b) * (nx - ys[b]); };
+    return [s / k, qt(a / 2), qt(1 - a / 2)];
+  }
+  run(method, a) {
+    if (!this._c) this._c = {};
+    const key = method + '|' + a;
+    if (this._c[key]) return this._c[key];
+    const pool = this.data().pool, N = pool.length, n = 500;
+    const pr = pool.map(p => this.knn(p.x, a));
+    const sc = pool.map((p, i) => method === 'split' ? Math.abs(p.y - pr[i][0]) : Math.max(pr[i][1] - p.y, p.y - pr[i][2]));
+    const qh = idx => { const s = idx.map(i => sc[i]).sort((u, v) => u - v); const k = Math.min(Math.ceil((idx.length + 1) * (1 - a)), idx.length); return s[k - 1]; };
+    const all = []; for (let i = 0; i < N; i++) all.push(i);
+    const cal = all.slice(0, n), test = all.slice(n);
+    const Q = qh(cal);
+    const band = pp => method === 'split' ? [pp[0] - Q, pp[0] + Q] : [pp[1] - Q, pp[2] + Q];
+    let cov = 0, wid = 0;
+    test.forEach(i => { if (sc[i] <= Q) cov++; const b = band(pr[i]); wid += b[1] - b[0]; });
+    cov /= test.length; wid /= test.length;
+    const X = x => 40 + x / 5 * 1190;
+    const Y = y => 392 - (Math.min(Math.max(y, -3), 9) + 3) / 12 * 380;
+    const f = v => v.toFixed(1);
+    let up = '', line = ''; const dn = [];
+    for (let i = 0; i <= 100; i++) {
+      const x = i * 0.05, pp = this.knn(x, a), b = band(pp);
+      up += (i ? 'L' : 'M') + f(X(x)) + ' ' + f(Y(b[1]));
+      dn.push(f(X(x)) + ' ' + f(Y(b[0])));
+      line += (i ? 'L' : 'M') + f(X(x)) + ' ' + f(Y(pp[0]));
+    }
+    const lower = 'M' + dn.join('L');
+    const area = up + 'L' + dn.slice().reverse().join('L') + 'Z';
+    const dot = (x, y, rr) => 'M' + f(x - rr) + ' ' + f(y) + 'a' + rr + ' ' + rr + ' 0 1 0 ' + (2 * rr) + ' 0a' + rr + ' ' + rr + ' 0 1 0 ' + (-2 * rr) + ' 0';
+    let pin = '', pout = '';
+    test.forEach(i => { const p = pool[i]; if (sc[i] <= Q) pin += dot(X(p.x), Y(p.y), 1.8); else pout += dot(X(p.x), Y(p.y), 3); });
+    const r = this.rng(4242); let mean = 0;
+    for (let rep = 0; rep < 1000; rep++) {
+      const idx = all.slice();
+      for (let i = N - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); const t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+      const q = qh(idx.slice(0, n));
+      let c = 0; for (let t = n; t < N; t++) if (sc[idx[t]] <= q) c++;
+      mean += c / (N - n);
+    }
+    mean /= 1000;
+    const res = { area: area, up: up, lower: lower, line: line, pin: pin, pout: pout, cov: cov.toFixed(3), wid: wid.toFixed(2), mean: mean.toFixed(3), target: (1 - a).toFixed(2) };
+    this._c[key] = res;
+    return res;
+  }
+  renderVals() {
+    const st = this.state || {};
+    const light = st.light !== undefined ? st.light : this.props.theme === 'light';
+    const t = light
+      ? { bg: '#E4E4E0', panel: '#F1F1EE', line: '#B8B8B3', grid: '#E2E2DE', text: '#3A3A37', strong: '#0F0F0E', dim: '#6A6A66' }
+      : { bg: '#0A0A0A', panel: '#111111', line: '#383836', grid: '#1C1C1B', text: '#B9B9B5', strong: '#E9E9E5', dim: '#8A8A86' };
+    t.dDot = light ? 'transparent' : t.strong;
+    t.lDot = light ? t.strong : 'transparent';
+    t.dCol = light ? t.dim : t.strong;
+    t.lCol = light ? t.strong : t.dim;
+    const m = st.method || 'cqr';
+    const a = st.alpha || 0.1;
+    const R = this.run(m, a);
+    const methods = [{ id: 'split', label: 'Split conformal' }, { id: 'cqr', label: 'CQR' }].map(o => ({ label: o.label, on: o.id === m, off: o.id !== m, pick: () => this.setState({ method: o.id }) }));
+    const alphas = [0.05, 0.1, 0.2].map(v => ({ label: 'α ' + v.toFixed(2), on: v === a, off: v !== a, pick: () => this.setState({ alpha: v }) }));
+    return {
+      t: t, isDark: !light, isLight: light, R: R, methods: methods, alphas: alphas,
+      mname: m === 'split' ? 'Split conformal' : 'CQR',
+      setDark: () => this.setState({ light: false }),
+      setLight: () => this.setState({ light: true })
+    };
+  }
+}
+</script>
+</body>
+</html>
