@@ -1,5 +1,8 @@
 import { Geist } from "next/font/google";
 import ThemeProvider from "@/components/ThemeProvider";
+import SkipLink from "@/components/SkipLink";
+import MenuBar from "@/components/MenuBar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const geist = Geist({
@@ -18,8 +21,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={geist.variable} suppressHydrationWarning>
-      <body className="min-h-dvh bg-bg font-sans text-text antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="bg-bg font-sans text-text antialiased">
+        <ThemeProvider>
+          <div id="top" className="flex min-h-dvh flex-col">
+            <SkipLink />
+            <MenuBar />
+            <main
+              id="main"
+              tabIndex={-1}
+              className="flex flex-col gap-4 px-4 pt-4 outline-none sm:gap-10 sm:px-8 sm:pt-8 lg:px-16 lg:pt-12"
+            >
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

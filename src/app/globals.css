@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Theme variants follow the data-theme attribute set by next-themes. */
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* Design tokens — dark is the default (also before next-themes runs). */
 :root,
 [data-theme="dark"] {
@@ -58,6 +62,11 @@
   --shadow-*: initial;
   --inset-shadow-*: initial;
   --drop-shadow-*: initial;
+}
+
+/* Keep anchored panels clear of the 44px sticky menu bar. */
+html {
+  scroll-padding-top: 60px;
 }
 
 :focus-visible {
