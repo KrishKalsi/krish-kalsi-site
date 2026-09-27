@@ -24,9 +24,10 @@ export function PhotoPanel({
   side = "left",
   mediaWidth = "42%",
   mobileHeight = 440,
-  objectPosition = "50% 50%",
+  objectPositionClass = "object-center",
   sizes = "(min-width: 640px) 45vw, 100vw",
   priority = false,
+  overlay,
   className,
   children,
   ...rest
@@ -57,10 +58,10 @@ export function PhotoPanel({
           alt={photo.alt}
           fill
           sizes={sizes}
-          className="object-cover"
-          style={{ objectPosition }}
+          className={cx("object-cover", objectPositionClass)}
           {...(priority && { loading: "eager", fetchPriority: "high" })}
         />
+        {overlay}
       </div>
       <div className={body}>{children}</div>
     </Tag>

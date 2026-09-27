@@ -11,8 +11,8 @@ Everything the site says. Use this wording exactly. Items marked **TODO** are mi
 - Based: Mumbai, India — 19.07°N 72.87°E
 - Menu-bar location: Mumbai, IST
 - Cover corner: Portfolio ’26
-- GitHub: **TODO** (URL)
-- LinkedIn: **TODO** (URL)
+- GitHub: https://github.com/KrishKalsi
+- LinkedIn: https://www.linkedin.com/in/krish-kalsi-b33404248/
 - CV PDF: **TODO** — place at `public/cv/krish-kalsi-cv.pdf`
 
 ## Home — About panel (01)

@@ -9,8 +9,8 @@ export const profile = {
   based: "Mumbai, India — 19.07°N 72.87°E",
   menuLocation: "Mumbai, IST",
   coverCorner: "Portfolio ’26",
-  github: null, // TODO: GitHub URL
-  linkedin: null, // TODO: LinkedIn URL
+  github: "https://github.com/KrishKalsi",
+  linkedin: "https://www.linkedin.com/in/krish-kalsi-b33404248/",
   cv: "/cv", // TODO: add public/cv/krish-kalsi-cv.pdf
 };
 
