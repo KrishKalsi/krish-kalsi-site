@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "next-themes";
+import { useThemeSwitch } from "@/lib/useThemeSwitch";
 import cx from "@/lib/cx";
 
 // The 10-swatch grey ramp under "KK©" on the cover — a second theme toggle.
@@ -22,14 +22,19 @@ const swatchClasses = [
 ];
 
 export default function ThemeRamp({ className }) {
-  const { theme, setTheme } = useTheme();
+  const switchTheme = useThemeSwitch();
 
   return (
     <button
       type="button"
       aria-label="Switch between dark and light mode"
       title="Switch theme"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={(e) =>
+        switchTheme(
+          document.documentElement.dataset.theme === "light" ? "dark" : "light",
+          e.currentTarget,
+        )
+      }
       className={cx("relative flex h-[9px] items-center bg-none p-0 cursor-pointer", className)}
     >
       {/* Invisible hit-area expansion to a 44px touch target without affecting layout. */}

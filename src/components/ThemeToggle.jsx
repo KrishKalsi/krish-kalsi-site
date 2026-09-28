@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
+import { useThemeSwitch } from "@/lib/useThemeSwitch";
 import { theme as copy } from "@/content/site";
 import cx from "@/lib/cx";
 
@@ -22,7 +23,8 @@ const styles = {
 };
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const switchTheme = useThemeSwitch();
   const mounted = useSyncExternalStore(noop, () => true, () => false);
 
   return (
@@ -32,7 +34,7 @@ export default function ThemeToggle() {
           key={option.value}
           type="button"
           aria-pressed={mounted ? theme === option.value : undefined}
-          onClick={() => setTheme(option.value)}
+          onClick={(e) => switchTheme(option.value, e.currentTarget)}
           className={cx(
             "flex min-h-11 cursor-pointer items-center gap-[7px]",
             styles[option.value].button,

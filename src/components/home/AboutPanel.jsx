@@ -1,4 +1,5 @@
 import { PhotoPanel } from "@/components/Panel";
+import PanelTitle from "@/components/PanelTitle";
 import { photos } from "@/content/profile";
 import { aboutStatement, aboutLabels } from "@/content/home";
 
@@ -12,9 +13,7 @@ export default function AboutPanel() {
       className="lg:min-h-[680px]"
     >
       <div className="flex items-baseline justify-between">
-        <h2 className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-strong">
-          About
-        </h2>
+        <PanelTitle>About</PanelTitle>
         <span className="text-xs text-dim">(01)</span>
       </div>
 

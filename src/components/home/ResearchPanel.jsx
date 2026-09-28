@@ -2,6 +2,7 @@
 
 import { useId, useState, useSyncExternalStore } from "react";
 import Panel from "@/components/Panel";
+import PanelTitle from "@/components/PanelTitle";
 import { research, researchLabels as copy } from "@/content/research";
 import { hoverFade } from "@/lib/motion";
 import cx from "@/lib/cx";
@@ -95,9 +96,7 @@ export default function ResearchPanel() {
       {/* One child, so Panel's top/bottom gap doesn't split the header from the list. */}
       <div>
         <div className="flex items-baseline justify-between pb-[18px] sm:pb-7">
-          <h2 className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-strong">
-            Research
-          </h2>
+          <PanelTitle>Research</PanelTitle>
           <span className="text-xs text-dim sm:text-[13px]">
             {copy.count}
             <span className="hidden sm:inline"> · {copy.kind}</span>

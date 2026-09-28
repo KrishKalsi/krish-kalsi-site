@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import { Geist } from "next/font/google";
 import ThemeProvider from "@/components/ThemeProvider";
 import SkipLink from "@/components/SkipLink";
@@ -32,7 +33,8 @@ export default function RootLayout({ children }) {
               tabIndex={-1}
               className="flex flex-col gap-4 px-4 pt-4 outline-none sm:gap-10 sm:px-8 sm:pt-8 lg:px-16 lg:pt-12"
             >
-              {children}
+              {/* Route changes cross-fade (250ms, globals.css). */}
+              <ViewTransition>{children}</ViewTransition>
             </main>
             <Footer />
           </div>

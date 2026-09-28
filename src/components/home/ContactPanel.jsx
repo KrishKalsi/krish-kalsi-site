@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PhotoPanel } from "@/components/Panel";
+import PanelTitle from "@/components/PanelTitle";
 import { profile, photos } from "@/content/profile";
 
 const rowLink =
@@ -17,9 +18,7 @@ export default function ContactPanel() {
       sizes="(min-width: 640px) 40vw, 100vw"
       className="lg:min-h-[680px]"
     >
-      <h2 className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-strong">
-        Contact
-      </h2>
+      <PanelTitle>Contact</PanelTitle>
       <div>
         <div className="text-xs text-dim uppercase">Mail:</div>
         <a

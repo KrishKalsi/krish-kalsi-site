@@ -1,5 +1,8 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import Panel from "@/components/Panel";
+import { titleTransitionName } from "@/lib/motion";
+import PanelTitle from "@/components/PanelTitle";
 import CircleMarker from "@/components/CircleMarker";
 import { work } from "@/content/work";
 import { profile } from "@/content/profile";
@@ -7,13 +10,23 @@ import { profile } from "@/content/profile";
 const itemClass = "group flex flex-col gap-1 text-strong no-underline";
 
 function WorkItem({ item }) {
+  const title = (
+    <span className="mt-1.5 text-lg leading-[1.25] uppercase sm:text-xl">{item.title}</span>
+  );
   const label = (
     <>
       <span className="flex items-center gap-2.5 text-[13px] text-dim">
         <CircleMarker filled={item.featured} />
         {item.no} — {item.area}
       </span>
-      <span className="mt-1.5 text-lg leading-[1.25] uppercase sm:text-xl">{item.title}</span>
+      {/* Tiles with a project page morph their title into that page's h1. */}
+      {item.external ? (
+        title
+      ) : (
+        <ViewTransition name={titleTransitionName(item.href)} share="morph" default="none">
+          {title}
+        </ViewTransition>
+      )}
       <span
         aria-hidden="true"
         className="block h-px origin-left scale-x-0 bg-strong transition-transform duration-350 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"
@@ -47,9 +60,7 @@ export default function WorkPanel() {
   return (
     <Panel id="work" className="lg:min-h-[640px]">
       <div className="flex items-baseline justify-between">
-        <h2 className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-strong">
-          Work
-        </h2>
+        <PanelTitle>Work</PanelTitle>
         <span className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-dim">
           06
         </span>

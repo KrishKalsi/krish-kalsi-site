@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Panel from "@/components/Panel";
+import PanelTitle from "@/components/PanelTitle";
 import { experience } from "@/content/experience";
 import { profile } from "@/content/profile";
 
@@ -7,9 +8,7 @@ export default function ExperiencePanel() {
   return (
     <Panel className="lg:min-h-[400px]">
       <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <h2 className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-strong">
-          Experience
-        </h2>
+        <PanelTitle>Experience</PanelTitle>
         <Link
           href={profile.cv}
           className="flex min-h-11 items-center border border-strong px-[18px] text-xs text-strong no-underline uppercase"

@@ -146,7 +146,37 @@ html.circle-cursor :is(input, textarea, select, [contenteditable="true"]) {
   cursor: text;
 }
 
+/* View transitions. Route changes cross-fade in 250ms; a Work tile's title
+   morphs into its project page's h1 (class "morph") in 500ms. */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 250ms;
+}
+::view-transition-group(.morph),
+::view-transition-old(.morph),
+::view-transition-new(.morph) {
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+/* Theme switch: no cross-fade; useThemeSwitch clips the new page in as a
+   circle from the pressed control, over the old one. */
+html.theme-reveal::view-transition-old(root),
+html.theme-reveal::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
   /* The rule below removes the animation; without this the walks would stay hidden. */
   .walk {
     stroke-dashoffset: 0;

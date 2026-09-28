@@ -1,8 +1,9 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import Panel from "@/components/Panel";
 import { projectLabels } from "@/content/projects";
 import { profile } from "@/content/profile";
-import { hoverFade } from "@/lib/motion";
+import { hoverFade, titleTransitionName } from "@/lib/motion";
 import cx from "@/lib/cx";
 
 export default function ProjectHero({ project, tile }) {
@@ -17,14 +18,16 @@ export default function ProjectHero({ project, tile }) {
         </span>
       </div>
 
-      <h1 className="text-[clamp(72px,9.2vw+36px,168px)] leading-[0.86] font-light tracking-[-0.055em] text-strong">
-        {project.title.map((line, i) => (
-          <span key={line} className="block">
-            {line}
-            {i < project.title.length - 1 && <span className="sr-only"> </span>}
-          </span>
-        ))}
-      </h1>
+      <ViewTransition name={titleTransitionName(tile.href)} share="morph" default="none">
+        <h1 className="text-[clamp(72px,9.2vw+36px,168px)] leading-[0.86] font-light tracking-[-0.055em] text-strong">
+          {project.title.map((line, i) => (
+            <span key={line} className="block">
+              {line}
+              {i < project.title.length - 1 && <span className="sr-only"> </span>}
+            </span>
+          ))}
+        </h1>
+      </ViewTransition>
 
       <div className="grid grid-cols-1 items-end gap-6 text-[11px] leading-[1.45] uppercase sm:grid-cols-4 sm:text-xs">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-4 sm:col-span-3 sm:grid-cols-3">
