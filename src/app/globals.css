@@ -75,17 +75,6 @@ html {
   outline-offset: 3px;
 }
 
-/* Theme change cross-fades colours over 300ms. A class-based transition (a
-   hover fade, a circle marker's fill) has higher specificity and wins over
-   this on the properties it names, so it's the default for everything else. */
-*,
-*::before,
-*::after {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 300ms;
-  transition-timing-function: ease;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

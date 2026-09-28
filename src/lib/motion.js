@@ -1,11 +1,8 @@
 // Shared motion tokens (CLAUDE.md → Motion).
 
-// Links/panels that dim on hover (150ms) still need to cross-fade their
-// theme-driven colours at the site-wide 300ms speed (globals.css). A class
-// that sets `transition-property` replaces, rather than merges with, the
-// page-wide rule, so both speeds are combined in one declaration here.
+// Links and panels that dim on hover.
 export const hoverFade =
-  "[transition:opacity_150ms_ease,color_300ms_ease,background-color_300ms_ease,border-color_300ms_ease] hover:opacity-70 motion-reduce:transition-none";
+  "transition-opacity duration-150 hover:opacity-70 motion-reduce:transition-none";
 
 // Panels fade in once as they enter the viewport: opacity 0→1, translateY
 // 12px→0, 400ms ease-out. Pass `reduce` from useReducedMotion() (true, false,
