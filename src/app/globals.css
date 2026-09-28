@@ -22,7 +22,8 @@
   --panel: #f1f1ee;
   --line: #b8b8b3;
   --grid: #e2e2de;
-  --dim: #6a6a66;
+  /* #6A6A66 measured 4.26:1 on --bg, just under WCAG AA (4.5:1); darkened. */
+  --dim: #636360;
   --text: #3a3a37;
   --strong: #0f0f0e;
   color-scheme: light;
@@ -72,4 +73,24 @@ html {
 :focus-visible {
   outline: 1px solid var(--strong);
   outline-offset: 3px;
+}
+
+/* Theme change cross-fades colours over 300ms. A class-based transition (a
+   hover fade, a circle marker's fill) has higher specificity and wins over
+   this on the properties it names, so it's the default for everything else. */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

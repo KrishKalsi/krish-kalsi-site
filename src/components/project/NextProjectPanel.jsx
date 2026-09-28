@@ -2,6 +2,8 @@ import Link from "next/link";
 import Panel from "@/components/Panel";
 import { projectLabels } from "@/content/projects";
 import { profile } from "@/content/profile";
+import { hoverFade } from "@/lib/motion";
+import cx from "@/lib/cx";
 
 // Projects without their own page yet link to GitHub, as their Work tiles do.
 export default function NextProjectPanel({ next }) {
@@ -12,7 +14,7 @@ export default function NextProjectPanel({ next }) {
   return (
     <Panel
       {...linkProps}
-      className="min-h-[180px] text-strong transition-opacity duration-150 hover:opacity-70 motion-reduce:transition-none lg:min-h-[240px]"
+      className={cx("min-h-[180px] text-strong lg:min-h-[240px]", hoverFade)}
     >
       <span className="text-xs text-dim uppercase">
         {projectLabels.next} — {next.no}

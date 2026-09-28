@@ -1,5 +1,10 @@
+"use client";
+
+import Link from "next/link";
+import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import cx from "@/lib/cx";
+import { panelFadeIn } from "@/lib/motion";
 
 const frame = "border border-line bg-panel";
 
@@ -8,18 +13,29 @@ const frame = "border border-line bg-panel";
 const body =
   "flex flex-col justify-between gap-10 px-[18px] pt-[18px] pb-5 sm:px-9 sm:pt-7 sm:pb-8";
 
-export default function Panel({ as: Tag = "section", className, children, ...rest }) {
-  return (
-    <Tag className={cx(frame, body, className)} {...rest}>
-      {children}
-    </Tag>
-  );
+// `as` is one of these four tags across the whole site. Each is a plain
+// module-scope reference — the react-hooks/static-components rule forbids a
+// JSX tag whose identifier is computed in the render body (even a lookup),
+// so which one renders is chosen by branching, never by assigning a variable.
+const MotionSection = motion.section;
+const MotionDiv = motion.div;
+const MotionA = motion.a;
+const MotionLink = motion.create(Link);
+
+export default function Panel({ as = "section", className, children, ...rest }) {
+  const reduce = useReducedMotion();
+  const props = { className: cx(frame, body, className), ...panelFadeIn(reduce), ...rest };
+
+  if (as === Link) return <MotionLink {...props}>{children}</MotionLink>;
+  if (as === "a") return <MotionA {...props}>{children}</MotionA>;
+  if (as === "div") return <MotionDiv {...props}>{children}</MotionDiv>;
+  return <MotionSection {...props}>{children}</MotionSection>;
 }
 
 // A panel split by a 1px rule: full-height photo on one side, content on the
 // other. Below 640px the photo sits on top at `mobileHeight`.
 export function PhotoPanel({
-  as: Tag = "section",
+  as = "section",
   photo,
   side = "left",
   mediaWidth = "42%",
@@ -32,21 +48,25 @@ export function PhotoPanel({
   children,
   ...rest
 }) {
+  const reduce = useReducedMotion();
   const left = side === "left";
 
-  return (
-    <Tag
-      className={cx(
-        frame,
-        "flex flex-col sm:grid",
-        left
-          ? "sm:grid-cols-[var(--media)_minmax(0,1fr)]"
-          : "sm:grid-cols-[minmax(0,1fr)_var(--media)]",
-        className,
-      )}
-      style={{ "--media": mediaWidth, "--media-h": `${mobileHeight}px` }}
-      {...rest}
-    >
+  const props = {
+    className: cx(
+      frame,
+      "flex flex-col sm:grid",
+      left
+        ? "sm:grid-cols-[var(--media)_minmax(0,1fr)]"
+        : "sm:grid-cols-[minmax(0,1fr)_var(--media)]",
+      className,
+    ),
+    style: { "--media": mediaWidth, "--media-h": `${mobileHeight}px` },
+    ...panelFadeIn(reduce),
+    ...rest,
+  };
+
+  const content = (
+    <>
       <div
         className={cx(
           "relative h-(--media-h) border-b border-line sm:h-auto sm:border-b-0",
@@ -64,6 +84,11 @@ export function PhotoPanel({
         {overlay}
       </div>
       <div className={body}>{children}</div>
-    </Tag>
+    </>
   );
+
+  if (as === Link) return <MotionLink {...props}>{content}</MotionLink>;
+  if (as === "a") return <MotionA {...props}>{content}</MotionA>;
+  if (as === "div") return <MotionDiv {...props}>{content}</MotionDiv>;
+  return <MotionSection {...props}>{content}</MotionSection>;
 }

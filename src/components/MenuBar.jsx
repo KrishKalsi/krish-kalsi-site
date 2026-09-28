@@ -7,9 +7,9 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { menu } from "@/content/site";
 import { profile } from "@/content/profile";
 import cx from "@/lib/cx";
+import { hoverFade } from "@/lib/motion";
 
-const linkBase =
-  "flex min-h-11 items-center transition-opacity duration-150 hover:opacity-70 motion-reduce:transition-none";
+const linkBase = cx("flex min-h-11 items-center", hoverFade);
 
 export default function MenuBar() {
   const pathname = usePathname();

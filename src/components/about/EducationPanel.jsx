@@ -12,13 +12,13 @@ export default function EducationPanel() {
             <div
               key={item.degree}
               className={cx(
-                "flex flex-col gap-1 sm:grid sm:grid-cols-[1fr_1fr_180px] sm:items-baseline sm:gap-6",
+                "flex flex-col gap-1 lg:grid lg:grid-cols-[1fr_1fr_180px] lg:items-baseline lg:gap-6",
                 i === 0 ? "border-b border-line pb-5" : "pt-5",
               )}
             >
               <span className="text-lg text-strong sm:text-[22px]">{item.degree}</span>
               <span className="text-sm sm:text-[15px]">{item.institution}</span>
-              <span className="text-xs uppercase text-strong sm:text-right sm:text-[13px]">
+              <span className="text-xs uppercase text-strong lg:text-right lg:text-[13px]">
                 {item.period}
               </span>
             </div>

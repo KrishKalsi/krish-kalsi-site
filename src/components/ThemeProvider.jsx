@@ -9,7 +9,6 @@ export default function ThemeProvider({ children }) {
       defaultTheme="dark"
       themes={["dark", "light"]}
       enableSystem={false}
-      disableTransitionOnChange
     >
       {children}
     </NextThemesProvider>
