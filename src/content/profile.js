@@ -19,10 +19,6 @@ export const photos = {
     src: "/images/street.jpg",
     alt: "Krish on a quiet street at night, looking down at his phone",
   },
-  harbour: {
-    src: "/images/harbour.jpg",
-    alt: "Krish by the water at night, harbour lights behind him",
-  },
   rooftop: {
     src: "/images/rooftop.jpg",
     alt: "Krish standing by a railing against a grey night sky",
