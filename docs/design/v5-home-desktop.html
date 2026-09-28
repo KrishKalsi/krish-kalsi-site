@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Krish Kalsi — v5</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.kk-root,.kk-root a,.kk-root button{cursor:none}
+@keyframes kkdraw{from{stroke-dashoffset:2600}to{stroke-dashoffset:0}}
+.kk-walk{stroke-dasharray:2600;stroke-dashoffset:2600;animation:kkdraw 6.5s cubic-bezier(.33,.1,.25,1) forwards}
+.kk-walk-2{animation-delay:.45s}.kk-walk-3{animation-delay:.9s}.kk-walk-hi{animation-delay:1.5s;animation-duration:5s}
+.kk-item .kk-dot{transition:background-color .15s ease}
+.kk-item:hover .kk-dot{background-color:currentColor}
+.kk-item .kk-line{transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.kk-item:hover .kk-line{transform:scaleX(1)}
+@media (prefers-reduced-motion: reduce){.kk-walk{animation:none;stroke-dashoffset:0}.kk-item .kk-line{transition:none}}
+</style>
+</helmet>
+<div id="top" class="kk-root" ref="{{refs.root}}" onMouseMove="{{onMove}}" onMouseLeave="{{onLeave}}" style="position: relative; width: 1440px; height: 4320px; box-sizing: border-box; background: {{t.bg}}; color: {{t.text}}; font-family: 'Geist', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; overflow: hidden">
+
+<header style="position: sticky; top: 0; z-index: 20; height: 44px; flex-shrink: 0; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; background: {{t.bg}}; border-bottom: 1px solid {{t.line}}; font-size: 13px">
+<nav style="display: flex; align-items: center; gap: 28px">
+<a href="#top" style="color: {{t.strong}}; font-weight: 500; text-decoration: none; padding: 12px 0">/KrishKalsi</a>
+<a href="#work" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Work</a>
+<a href="#research" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Research</a>
+<a href="#about" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">About</a>
+<a href="#" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">CV</a>
+<a href="#contact" style="color: {{t.text}}; text-decoration: none; padding: 12px 0">Contact</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 24px">
+<div role="group" aria-label="Colour theme" style="display: flex; gap: 18px">
+<button onClick="{{setDark}}" aria-pressed="{{isDark}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.dCol}}"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.dCol}}; background: {{t.dDot}}"></span>Dark</button>
+<button onClick="{{setLight}}" aria-pressed="{{isLight}}" style="display: flex; align-items: center; gap: 7px; min-height: 44px; padding: 0; background: none; border: none; font: inherit; color: {{t.lCol}}"><span style="width: 9px; height: 9px; border-radius: 50%; border: 1px solid {{t.lCol}}; background: {{t.lDot}}"></span>Light</button>
+</div>
+<span style="color: {{t.dim}}">Mumbai, IST</span>
+</div>
+</header>
+
+<main style="padding: 48px 64px 0; display: flex; flex-direction: column; gap: 40px">
+
+<section style="position: relative; height: 760px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden">
+<sc-if value="{{even}}" hint-placeholder-val="{{true}}">
+<svg width="1310" height="758" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<path class="kk-walk" d="{{walk.g1}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
+<path class="kk-walk kk-walk-2" d="{{walk.g2}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
+<path class="kk-walk kk-walk-3" d="{{walk.g3}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
+<path class="kk-walk kk-walk-hi" d="{{walk.hi}}" style="fill: none; stroke: {{t.strong}}; stroke-opacity: 0.55; stroke-width: 1.2px"></path>
+</svg>
+</sc-if>
+<sc-if value="{{odd}}" hint-placeholder-val="{{false}}">
+<svg width="1310" height="758" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<path class="kk-walk" d="{{walk.g1}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
+<path class="kk-walk kk-walk-2" d="{{walk.g2}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
+<path class="kk-walk kk-walk-3" d="{{walk.g3}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
+<path class="kk-walk kk-walk-hi" d="{{walk.hi}}" style="fill: none; stroke: {{t.strong}}; stroke-opacity: 0.55; stroke-width: 1.2px"></path>
+</svg>
+</sc-if>
+<div style="position: relative">
+<div style="position: absolute; right: 0; top: 0; display: flex; align-items: center; gap: 14px; font-size: 12px; text-transform: uppercase; color: {{t.dim}}">
+<span>Fig. 0 — 24 random walks, σ = 0.25</span>
+<button onClick="{{redraw}}" aria-label="Redraw the random walks" style="min-height: 44px; padding: 0 2px; background: none; border: none; font: inherit; text-transform: inherit; color: {{t.strong}}">Redraw ↻</button>
+</div>
+<h1 style="margin: 44px 0 0; font-size: 212px; line-height: 0.84; font-weight: 300; letter-spacing: -0.055em; color: {{t.strong}}">Krish Kalsi</h1>
+<p style="margin: 40px 0 0 8px; font-size: 22px; line-height: 1.4; max-width: 520px; color: {{t.text}}">Data science student</p>
+</div>
+<div style="position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; align-items: end; padding-left: 8px; font-size: 12px; line-height: 1.4; text-transform: uppercase">
+<div>
+<div style="font-size: 13px; font-weight: 600; letter-spacing: -0.02em; text-transform: none; color: {{t.strong}}">KK©</div>
+<button onClick="{{toggle}}" aria-label="Switch between dark and light mode" style="margin-top: 8px; display: flex; padding: 0; min-height: 24px; align-items: center; background: none; border: none">
+<span style="width: 11px; height: 9px; background: #F2F2F0"></span><span style="width: 11px; height: 9px; background: #D6D6D3"></span><span style="width: 11px; height: 9px; background: #BBBBB8"></span><span style="width: 11px; height: 9px; background: #A0A09D"></span><span style="width: 11px; height: 9px; background: #858582"></span><span style="width: 11px; height: 9px; background: #6B6B68"></span><span style="width: 11px; height: 9px; background: #52524F"></span><span style="width: 11px; height: 9px; background: #3B3B39"></span><span style="width: 11px; height: 9px; background: #262625"></span><span style="width: 11px; height: 9px; background: #141413; outline: 1px solid {{t.line}}"></span>
+</button>
+</div>
+<div><div style="color: {{t.dim}}">Mail:</div><a href="mailto:krishkalsi9@gmail.com" style="color: {{t.strong}}; text-decoration: none">krishkalsi9@gmail.com</a></div>
+<div><div style="color: {{t.dim}}">Based:</div><div style="color: {{t.strong}}">Mumbai, India — 19.07°N 72.87°E</div></div>
+<div style="text-align: right; font-size: 30px; font-weight: 300; letter-spacing: -0.03em; text-transform: none; color: {{t.strong}}">Portfolio ’26</div>
+</div>
+</section>
+
+<section id="about" style="height: 680px; box-sizing: border-box; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: 544px 1fr">
+<img src="../photos/street.jpg" alt="Krish on a quiet street at night, looking down at his phone" style="display: block; width: 544px; height: 678px; object-fit: cover; object-position: 50% 30%; border-right: 1px solid {{t.line}}">
+<div style="padding: 28px 36px 32px; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">About</h2>
+<span style="font-size: 13px; color: {{t.dim}}">(01)</span>
+</div>
+<div>
+<p style="margin: 0; font-size: 25px; line-height: 1.38; letter-spacing: -0.01em; color: {{t.strong}}">Third-year data science student at NMIMS, Mumbai. I build models whose claims can be checked — prediction intervals, simulations, forecasts — and I’m most at home where statistics meets markets.</p>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; font-size: 12px; line-height: 1.45; text-transform: uppercase">
+<div><div style="color: {{t.dim}}">Education:</div><div style="color: {{t.strong}}">B.Tech Data Science, NMIMS MPSTME<br>2024–28 · CGPA 8.43</div></div>
+<div><div style="color: {{t.dim}}">Focus:</div><div style="color: {{t.strong}}">Uncertainty quantification<br>Quant finance · Econometrics</div></div>
+<div><div style="color: {{t.dim}}">Now:</div><div style="color: {{t.strong}}">Conformal prediction lab<br>NHANES survey-design audit</div></div>
+<div><div style="color: {{t.dim}}">Open to:</div><div style="color: {{t.strong}}">Research internships<br>Summer 2027</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="work" style="height: 640px; box-sizing: border-box; padding: 28px 36px 40px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Work</h2>
+<span style="font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.dim}}">06</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 52px 24px; font-size: 20px; line-height: 1.25">
+<sc-for list="{{work}}" as="w" hint-placeholder-count="6">
+<a href="{{w.href}}" class="kk-item" data-work="1" style="display: flex; flex-direction: column; gap: 4px; color: {{t.strong}}; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span class="kk-dot" style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.strong}}; color: {{t.strong}}"></span>{{w.no}} — {{w.area}}</span>
+<span style="margin-top: 6px; text-transform: uppercase">{{w.title}}</span>
+<span class="kk-line" style="display: block; height: 1px; background: {{t.strong}}"></span>
+<span style="font-size: 15px; color: {{t.text}}">{{w.detail}}</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section id="research" style="box-sizing: border-box; padding: 28px 36px 24px; border: 1px solid {{t.line}}; background: {{t.panel}}">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 28px">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Research</h2>
+<span style="font-size: 13px; color: {{t.dim}}">(03) · Working papers</span>
+</div>
+<sc-for list="{{papers}}" as="p" hint-placeholder-count="3">
+<article style="display: grid; grid-template-columns: 88px 1fr 160px; column-gap: 24px; padding: 26px 0; border-top: 1px solid {{t.line}}">
+<span style="font-size: 13px; color: {{t.dim}}; padding-top: 5px">[{{p.id}}]</span>
+<div>
+<p style="margin: 0; font-size: 21px; line-height: 1.4; color: {{t.text}}"><span style="font-weight: 500; color: {{t.strong}}">Kalsi, K.</span> et al. “<span style="color: {{t.strong}}">{{p.title}}</span>”</p>
+<div style="margin-top: 10px; font-size: 12px; line-height: 1.5; text-transform: uppercase; color: {{t.dim}}">{{p.meta}}</div>
+<sc-if value="{{p.open}}" hint-placeholder-val="{{false}}">
+<p style="margin: 16px 0 0; max-width: 820px; font-size: 16px; line-height: 1.6; color: {{t.text}}">{{p.abstract}}</p>
+</sc-if>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between">
+<span style="font-size: 15px; color: {{t.strong}}; padding-top: 4px">{{p.year}}</span>
+<button onClick="{{p.toggle}}" aria-expanded="{{p.open}}" style="min-height: 44px; padding: 0; background: none; border: none; font: inherit; font-size: 12px; text-transform: uppercase; color: {{t.strong}}">{{p.label}}</button>
+</div>
+</article>
+</sc-for>
+</section>
+
+<section style="height: 400px; box-sizing: border-box; padding: 28px 36px 40px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Experience</h2>
+<a href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid {{t.strong}}; font-size: 12px; text-transform: uppercase; color: {{t.strong}}; text-decoration: none">Download CV ↓</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; font-size: 20px; line-height: 1.25">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>2025</span><span style="margin-top: 6px; text-transform: uppercase; color: {{t.strong}}">Larsen &amp; Toubro</span><span style="font-size: 15px">Software engineering intern</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>2025–26</span><span style="margin-top: 6px; text-transform: uppercase; color: {{t.strong}}">Social Conclave, MPSTME</span><span style="font-size: 15px">Research &amp; development executive</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: {{t.dim}}"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid {{t.text}}"></span>2023</span><span style="margin-top: 6px; text-transform: uppercase; color: {{t.strong}}">Lydian Global</span><span style="font-size: 15px">Research intern</span></div>
+</div>
+</section>
+
+<section id="contact" style="height: 680px; box-sizing: border-box; border: 1px solid {{t.line}}; background: {{t.panel}}; display: grid; grid-template-columns: 1fr 520px">
+<div style="padding: 28px 36px 40px; display: flex; flex-direction: column; justify-content: space-between">
+<h2 style="margin: 0; font-size: 72px; line-height: 1; font-weight: 300; letter-spacing: -0.045em; color: {{t.strong}}">Contact</h2>
+<div>
+<div style="font-size: 12px; text-transform: uppercase; color: {{t.dim}}">Mail:</div>
+<a href="mailto:krishkalsi9@gmail.com" style="display: inline-block; margin-top: 8px; font-size: 56px; line-height: 1.05; font-weight: 300; letter-spacing: -0.04em; color: {{t.strong}}; text-decoration: none">krishkalsi9@gmail.com</a>
+<div style="margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid {{t.line}}; font-size: 12px; text-transform: uppercase">
+<a href="#" style="display: flex; align-items: center; min-height: 52px; color: {{t.strong}}; text-decoration: none">GitHub ↗</a>
+<a href="#" style="display: flex; align-items: center; min-height: 52px; color: {{t.strong}}; text-decoration: none">LinkedIn ↗</a>
+<a href="#" style="display: flex; align-items: center; min-height: 52px; color: {{t.strong}}; text-decoration: none">CV ↓</a>
+</div>
+</div>
+</div>
+<img src="../photos/rooftop.jpg" alt="Krish standing by a railing against a grey night sky" style="display: block; width: 520px; height: 678px; object-fit: cover; object-position: 50% 40%; border-left: 1px solid {{t.line}}">
+</section>
+</main>
+
+<footer style="margin-top: auto; padding: 28px 64px 36px; display: flex; justify-content: space-between; font-size: 12px; text-transform: uppercase; color: {{t.dim}}">
+<span>© 2026 Krish Kalsi</span>
+<span>Designed &amp; built in Mumbai</span>
+<a href="#top" style="color: {{t.dim}}; text-decoration: none">Back to top ↑</a>
+</footer>
+
+<div ref="{{refs.ov}}" aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 40; pointer-events: none; visibility: hidden"></div>
+<div ref="{{refs.cur}}" aria-hidden="true" style="position: absolute; left: 0; top: 0; z-index: 50; width: 16px; height: 16px; margin: -8px 0 0 -8px; box-sizing: border-box; border-radius: 50%; border: 1px solid #FFFFFF; mix-blend-mode: difference; pointer-events: none; opacity: 0; transition: width .2s ease, height .2s ease, margin .2s ease, background-color .2s ease, opacity .2s ease"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":4320}}'>
+class Component extends DCLogic {
+  rng(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  walks(seed) {
+    const r = this.rng(seed);
+    const nrm = () => { let u = 0; while (u === 0) u = r(); const v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+    const W = 1310, y0 = 470, steps = 90, sg = 0.25, k = 620, f = v => v.toFixed(1);
+    const one = () => {
+      let ls = 0, d = 'M0 ' + y0;
+      for (let i = 1; i <= steps; i++) {
+        ls += sg * Math.sqrt(1 / steps) * nrm();
+        const y = Math.min(Math.max(y0 - ls * k, 24), 740);
+        d += 'L' + f(i / steps * W) + ' ' + f(y);
+      }
+      return d;
+    };
+    let g1 = '', g2 = '', g3 = '';
+    for (let i = 0; i < 8; i++) { g1 += one(); g2 += one(); g3 += one(); }
+    return { g1: g1, g2: g2, g3: g3, hi: one() };
+  }
+  isLight() {
+    const st = this.state || {};
+    return st.light !== undefined ? st.light : this.props.theme === 'light';
+  }
+  scale() {
+    const r = this._root.getBoundingClientRect();
+    return { r: r, s: (r.width / 1440) || 1 };
+  }
+  reveal(e, light) {
+    if (light === this.isLight() || !this._root || !this._ov) { if (light !== this.isLight()) this.setState({ light: light }); return; }
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ov = this._ov;
+    if (reduce || !ov.animate) { this.setState({ light: light }); return; }
+    const m = this.scale(), b = e.currentTarget.getBoundingClientRect();
+    const x = (b.left + b.width / 2 - m.r.left) / m.s, y = (b.top + b.height / 2 - m.r.top) / m.s;
+    const H = m.r.height / m.s, R = Math.hypot(Math.max(x, 1440 - x), Math.max(y, H - y));
+    ov.style.background = light ? '#E4E4E0' : '#0A0A0A';
+    ov.style.visibility = 'visible';
+    const anim = ov.animate(
+      [{ clipPath: 'circle(0px at ' + x + 'px ' + y + 'px)' }, { clipPath: 'circle(' + R + 'px at ' + x + 'px ' + y + 'px)' }],
+      { duration: 900, easing: 'cubic-bezier(.7,0,.3,1)', fill: 'forwards' }
+    );
+    anim.onfinish = () => {
+      this.setState({ light: light });
+      setTimeout(() => { anim.cancel(); ov.style.visibility = 'hidden'; }, 60);
+    };
+  }
+  componentDidMount() {
+    this._cx = -100; this._cy = -100; this._tx = -100; this._ty = -100;
+    const tick = () => {
+      this._cx += (this._tx - this._cx) * 0.22;
+      this._cy += (this._ty - this._cy) * 0.22;
+      if (this._cur) this._cur.style.transform = 'translate(' + this._cx.toFixed(1) + 'px,' + this._cy.toFixed(1) + 'px)';
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); }
+  renderVals() {
+    const st = this.state || {};
+    const light = this.isLight();
+    const t = light
+      ? { bg: '#E4E4E0', panel: '#F1F1EE', line: '#B8B8B3', text: '#3A3A37', strong: '#0F0F0E', dim: '#6A6A66' }
+      : { bg: '#0A0A0A', panel: '#111111', line: '#383836', text: '#B9B9B5', strong: '#E9E9E5', dim: '#8A8A86' };
+    t.dDot = light ? 'transparent' : t.strong;
+    t.lDot = light ? t.strong : 'transparent';
+    t.dCol = light ? t.dim : t.strong;
+    t.lCol = light ? t.strong : t.dim;
+    if (this._seed === undefined) this._seed = Math.floor(Math.random() * 1e9);
+    const gen = st.gen || 0;
+    const seed = this._seed + gen * 7919;
+    if (this._wseed !== seed) { this._walk = this.walks(seed); this._wseed = seed; }
+    if (!this._refs) this._refs = { root: el => { this._root = el; }, cur: el => { this._cur = el; }, ov: el => { this._ov = el; } };
+    const open = st.open || { P1: true };
+    const papers = [
+      { id: 'P1', title: 'Autonomous Stock Trading: A Comparative Review.', year: '2026', meta: 'Systematic review · In final revision for submission · Supervisor: Dr Prashasti Kanikar, NMIMS MPSTME', abstract: 'A review of 19 papers from four databases, screened against criteria fixed in advance. It compares supervised price-prediction models with deep reinforcement-learning trading agents, and finds that reward functions rarely account for risk and that almost no study tests whether simulated results carry over to live trading.' },
+      { id: 'P2', title: 'Survey Design in Medical Machine Learning: An Audit of NHANES-Based Studies.', year: '2026–27', meta: 'Supervised research · In progress · Supervisor: Dr Prashasti Kanikar, NMIMS MPSTME', abstract: 'NHANES is a complex survey with strata, clusters and sampling weights, yet much published machine-learning work treats it as a simple random sample. We measure how common this is and what it does to the reported results.' },
+      { id: 'P3', title: 'Critical Path Method for Quick-Commerce Logistics: Bottleneck Identification in Last-Mile Gig Delivery.', year: '2025', meta: 'Working paper', abstract: 'Models a last-mile delivery run as an Activity-on-Node network (CPM/PERT) and proposes an average negative float measure that locates where delays build up.' }
+    ].map(p => Object.assign(p, {
+      open: !!open[p.id],
+      label: open[p.id] ? 'Abstract ↑' : 'Abstract ↓',
+      toggle: () => { const o = Object.assign({}, open); o[p.id] = !o[p.id]; this.setState({ open: o }); }
+    }));
+    const work = [
+      { no: '01', area: 'Uncertainty', title: 'Conformal prediction lab', detail: '90% coverage met on 5 datasets', href: 'Project.dc.html' },
+      { no: '02', area: 'Stochastic processes', title: 'Markov model of T20 cricket', detail: 'MAE ≈ 21 runs over 217 matches', href: '#' },
+      { no: '03', area: 'Markets · Live', title: 'ETF overlap detector', detail: 'Look-through across 3,000+ securities', href: '#' },
+      { no: '04', area: 'Risk', title: 'Portfolio analytics', detail: 'Efficient frontier · Monte Carlo VaR', href: '#' },
+      { no: '05', area: 'Simulation', title: 'Poker equity engine', detail: '169 hands ranked from 500K+ showdowns', href: '#' },
+      { no: '06', area: 'Econometrics', title: 'Electricity demand', detail: '≈ 5% CV error on 2,900 days', href: '#' }
+    ];
+    return {
+      t: t, isDark: !light, isLight: light, walk: this._walk, even: gen % 2 === 0, odd: gen % 2 === 1,
+      refs: this._refs, papers: papers, work: work,
+      redraw: () => this.setState({ gen: gen + 1 }),
+      setDark: e => this.reveal(e, false),
+      setLight: e => this.reveal(e, true),
+      toggle: e => this.reveal(e, !light),
+      onMove: e => {
+        if (!this._root || !this._cur) return;
+        const m = this.scale();
+        this._tx = (e.clientX - m.r.left) / m.s;
+        this._ty = (e.clientY - m.r.top) / m.s;
+        const tg = e.target, c = this._cur.style;
+        const workEl = tg.closest && tg.closest('[data-work]');
+        const link = tg.closest && tg.closest('a,button');
+        const sz = workEl ? 56 : (link ? 40 : 16);
+        c.opacity = '1';
+        c.width = sz + 'px'; c.height = sz + 'px';
+        c.marginLeft = (-sz / 2) + 'px'; c.marginTop = (-sz / 2) + 'px';
+        c.backgroundColor = workEl ? '#FFFFFF' : 'transparent';
+      },
+      onLeave: () => { if (this._cur) this._cur.style.opacity = '0'; }
+    };
+  }
+}
+</script>
+</body>
+</html>

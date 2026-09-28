@@ -58,6 +58,20 @@ Build /work/[slug] as a project template and create the conformal-prediction ent
 Add the motion from CLAUDE.md: panels fade in once on scroll, 300ms theme cross-fade, circle markers fill on hover. Everything must switch off under prefers-reduced-motion. Then check every page at 1440, 768 and 390px in both themes and fix anything that overflows, wraps badly or loses contrast.
 ```
 
+## Step 6.5 — v5 update: formal Research, motion & character (plan mode, Opus)
+
+```
+We're upgrading the site to v5. Re-read CLAUDE.md (the Pages, Photos, Motion and Character sections changed) and docs/content.md (Research and Cover figure sections), and open docs/design/v5-home-desktop.html, v5-home-mobile.html and v5-motion.html. Then, as separate commits:
+1. Research: remove the harbour photo (and delete public/images/harbour.jpg) and rebuild the Research panel as the full-width formal publication list with Abstract toggles, content from docs/content.md.
+2. Work tiles: circle fills and a 1px underline draws on hover; add data-cursor="work".
+3. CoverWalk: the random-walk figure behind the name with the Fig. 0 caption and Redraw button, new seed per visit, generated after mount.
+4. CircleCursor: the ring cursor, fine-pointer devices only.
+5. Motion: circle-reveal theme switch via View Transitions, page cross-fades, the Work-title → project-title morph, and the panel-title mask reveals.
+Everything must respect prefers-reduced-motion and keep keyboard/screen-reader behaviour intact. Do not build the number scramble (option C). Show me your plan first, then check every change at 1440, 768 and 390px in both themes.
+```
+
+Then check in the browser: move the mouse around, hover Work items, switch Dark/Light, press Redraw, open an abstract, and click into the conformal prediction project and back.
+
 ## Step 7 — SEO and performance
 
 ```

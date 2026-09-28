@@ -48,13 +48,25 @@ Longer background for each (for future project pages — do not put on the home 
 
 ## Research (03)
 
-| Status | Title |
-|---|---|
-| In revision · 2026 | Autonomous stock trading: a comparative review |
-| Ongoing · 2026–27 · with Dr P. Kanikar | Survey design in medical ML: an NHANES audit |
-| Working paper · 2025 | Critical path method for quick-commerce logistics |
+v5: formal publication list, full-width panel, **no photo**. Header right: "(03) · Working papers". Each entry: `[P#]` · citation (**Kalsi, K.** et al. “Title.”) · meta line in caps · year right-aligned · "Abstract ↓ / Abstract ↑" toggle that opens the abstract in place. P1 open by default on desktop; all closed on mobile.
 
-Photo caption: By the water — Mumbai
+**[P1]** Kalsi, K. et al. “Autonomous Stock Trading: A Comparative Review.” — 2026
+- Meta: Systematic review · In final revision for submission · Supervisor: Dr Prashasti Kanikar, NMIMS MPSTME
+- Abstract: A review of 19 papers from four databases, screened against criteria fixed in advance. It compares supervised price-prediction models with deep reinforcement-learning trading agents, and finds that reward functions rarely account for risk and that almost no study tests whether simulated results carry over to live trading.
+
+**[P2]** Kalsi, K. et al. “Survey Design in Medical Machine Learning: An Audit of NHANES-Based Studies.” — 2026–27
+- Meta: Supervised research · In progress · Supervisor: Dr Prashasti Kanikar, NMIMS MPSTME
+- Abstract: NHANES is a complex survey with strata, clusters and sampling weights, yet much published machine-learning work treats it as a simple random sample. We measure how common this is and what it does to the reported results.
+
+**[P3]** Kalsi, K. et al. “Critical Path Method for Quick-Commerce Logistics: Bottleneck Identification in Last-Mile Gig Delivery.” — 2025
+- Meta: Working paper
+- Abstract: Models a last-mile delivery run as an Activity-on-Node network (CPM/PERT) and proposes an average negative float measure that locates where delays build up.
+
+(Mobile meta lines are shortened to the first two parts, e.g. "Systematic review · In final revision".)
+
+## Cover figure (v5)
+
+- Caption, top-right of cover: "Fig. 0 — 24 random walks, σ = 0.25" with a "Redraw ↻" button
 
 ## Experience
 
@@ -109,7 +121,6 @@ Button: Download CV ↓
 ## Image alt text
 
 - street.jpg: Krish on a quiet street at night, looking down at his phone
-- harbour.jpg: Krish by the water at night, harbour lights behind him
 - rooftop.jpg: Krish standing by a railing against a grey night sky
 - laugh.jpg: A motion-blurred photo of Krish laughing at night
 

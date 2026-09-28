@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>v5 motion and character spec</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1320px; box-sizing: border-box; padding: 48px 64px; background: #0A0A0A; color: #B9B9B5; font-family: 'Geist', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; gap: 40px">
+
+<section style="height: 260px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid #383836; background: #111111; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><h1 style="margin: 0; font-size: 120px; line-height: 0.86; font-weight: 300; letter-spacing: -0.055em; color: #E9E9E5">Motion &amp; character</h1><span style="font-size: 13px; color: #8A8A86">v5</span></div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; font-size: 12px; line-height: 1.45; text-transform: uppercase">
+<div><div style="color: #8A8A86">Character:</div><div style="color: #E9E9E5">A — random walk · B — circle cursor</div></div>
+<div><div style="color: #8A8A86">Standby:</div><div style="color: #E9E9E5">C — number scramble</div></div>
+<div><div style="color: #8A8A86">Removed:</div><div style="color: #E9E9E5">Harbour photo</div></div>
+<div><div style="color: #8A8A86">Rule:</div><div style="color: #E9E9E5">Everything off under reduced motion</div></div>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid #383836; background: #111111; display: grid; grid-template-columns: 220px repeat(2, minmax(0, 1fr)); gap: 32px 48px">
+<div style="grid-row: span 2; font-size: 12px; text-transform: uppercase; color: #8A8A86">Character:</div>
+<div>
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8A8A86"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid #E9E9E5; background: #E9E9E5"></span>A — Random walk on the cover</div>
+<ul style="margin: 14px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.5">
+<li>24 paths (σ = 0.25) behind the name, 22% opacity; one path highlighted at 55%.</li>
+<li>New random seed on every visit, so no two visitors see the same cover.</li>
+<li>Draws once, left to right, in three staggered groups (0 / 0.45 / 0.9 s, ~6 s total). Then stays still.</li>
+<li>"Redraw ↻" re-runs it. Decorative only: hidden from screen readers.</li>
+<li>Reduced motion: paths appear fully drawn, no animation.</li>
+</ul>
+</div>
+<div>
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8A8A86"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid #E9E9E5; background: #E9E9E5"></span>B — Circle cursor</div>
+<ul style="margin: 14px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.5">
+<li>16 px ring, 1 px, difference blend so it reads on any colour or photo.</li>
+<li>Follows the pointer with light easing (22% per frame) — smooth, never laggy.</li>
+<li>40 px over links and buttons; 56 px and filled over Work items (inverts the text beneath).</li>
+<li>Only on devices with a fine pointer (mouse/trackpad). Touch screens keep the normal behaviour.</li>
+<li>Reduced motion: no easing trail, ring snaps to the pointer. Native text cursor kept in any text field.</li>
+</ul>
+</div>
+<div style="grid-column: 2 / span 2; padding-top: 20px; border-top: 1px solid #383836">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8A8A86"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid #B9B9B5"></span>C — Number scramble (on standby, not built)</div>
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.5">Key numbers (90%, ≈ 21, 3,000+, 8.43) flicker through digits for ~400 ms before settling, once, when scrolled into view. Can be added later without changing anything else.</p>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid #383836; background: #111111; display: grid; grid-template-columns: 220px 1fr; column-gap: 48px">
+<div style="font-size: 12px; text-transform: uppercase; color: #8A8A86">Transitions:</div>
+<div style="display: flex; flex-direction: column">
+<div style="display: grid; grid-template-columns: 260px 1fr 140px; column-gap: 24px; padding: 14px 0; border-bottom: 1px solid #383836; font-size: 15px"><span style="color: #E9E9E5">Theme switch</span><span>New theme spreads as a circle from the button you pressed. On the real site the View Transitions API reveals the actual page, not a flat colour.</span><span style="text-align: right; font-size: 12px; color: #8A8A86">900 ms</span></div>
+<div style="display: grid; grid-template-columns: 260px 1fr 140px; column-gap: 24px; padding: 14px 0; border-bottom: 1px solid #383836; font-size: 15px"><span style="color: #E9E9E5">Page change</span><span>Whole page cross-fades. A Work tile’s title morphs into the project page’s large title (shared-element transition).</span><span style="text-align: right; font-size: 12px; color: #8A8A86">250 / 500 ms</span></div>
+<div style="display: grid; grid-template-columns: 260px 1fr 140px; column-gap: 24px; padding: 14px 0; border-bottom: 1px solid #383836; font-size: 15px"><span style="color: #E9E9E5">Text reveal</span><span>Panel titles slide up from behind a mask line, once, as each panel enters the screen. Panels themselves fade up 12 px.</span><span style="text-align: right; font-size: 12px; color: #8A8A86">500 ms</span></div>
+<div style="display: grid; grid-template-columns: 260px 1fr 140px; column-gap: 24px; padding: 14px 0; border-bottom: 1px solid #383836; font-size: 15px"><span style="color: #E9E9E5">Work item hover</span><span>Circle marker fills; a 1 px line draws under the title from left to right.</span><span style="text-align: right; font-size: 12px; color: #8A8A86">150 / 350 ms</span></div>
+<div style="display: grid; grid-template-columns: 260px 1fr 140px; column-gap: 24px; padding: 14px 0; font-size: 15px"><span style="color: #E9E9E5">Abstract toggle</span><span>Research abstracts open in place with a height and fade transition; the button reads “Abstract ↓ / ↑”.</span><span style="text-align: right; font-size: 12px; color: #8A8A86">300 ms</span></div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1320}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

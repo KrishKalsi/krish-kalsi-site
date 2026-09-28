@@ -2,7 +2,7 @@
 
 Personal portfolio for Krish Kalsi, a third-year B.Tech Data Science student (NMIMS MPSTME, Mumbai) working on statistics, uncertainty quantification and quantitative finance. Audience: quant recruiters, professors, grad-school committees, ML recruiters.
 
-The approved design is **v3 — Monochrome panels**. Reference mockups are in `docs/design/` (see "Design reference" below). Match them closely. All copy lives in `docs/content.md`.
+The approved design is **v5** = v3 (monochrome panels) + a formal Research list, no harbour photo, and the motion & character layer below. Home-page mockups: `docs/design/v5-*.html` (these override `v3-home-*`); other pages still follow their v3 mockups. Reference mockups are in `docs/design/` (see "Design reference" below). Match them closely. All copy lives in `docs/content.md`.
 
 ## Stack (do not change without asking)
 
@@ -59,35 +59,44 @@ Use `clamp()` so large type scales smoothly between breakpoints.
 
 | Route | Contents | Mockup |
 |---|---|---|
-| `/` | Cover → About → Work (6) → Research (3) → Experience (3) → Contact → footer | `docs/design/v3-home-desktop.html`, `v3-home-mobile.html` |
+| `/` | Cover (with random walk) → About → Work (6) → Research (3, formal list, no photo) → Experience (3) → Contact → footer | `docs/design/v5-home-desktop.html`, `v5-home-mobile.html` |
 | `/work/[slug]` | Project page. Build `conformal-prediction` fully first; other slugs use the same template once Krish writes them. Until then, their Work tiles link to GitHub. | `v3-project.html` |
 | `/about` | About hero with photo, Education, Coursework + Skills, Certifications + Beyond class, CV download | `v3-about.html` |
 | `/cv` | Redirects to `/cv/krish-kalsi-cv.pdf` in `public/` | — |
 
 Interactions:
-- **Theme toggle** in the menu bar on every page, plus the grey ramp under "KK©" on the cover toggles too. Cross-fade colours over 300ms.
+- **Theme toggle** in the menu bar on every page, plus the grey ramp under "KK©" on the cover toggles too. Circle reveal (see Motion).
 - **Project page Fig. 1** is interactive: method toggle (Split conformal / CQR) and α toggle (0.05 / 0.10 / 0.20) recompute the band, coverage, mean over 1,000 splits and mean width. The exact algorithm (seeded RNG, synthetic heteroscedastic data, k-NN model with k = 60) is in the `<script>` of `v3-project.html` — port it to a client component with SVG. Keep it seeded so numbers are reproducible. Compute once per (method, α) and memoise.
 
 ## Photos
 
 Supplied in `docs/photos/`; copy them to `public/images/` during setup. They are already graded (black and white, lifted blacks, fine grain) — do not re-filter:
 - `street.jpg` → About panel (home) — portrait, crop `object-position: 50% 30%`
-- `harbour.jpg` → Research panel — caption "By the water — Mumbai"
 - `rooftop.jpg` → Contact panel
 - `laugh.jpg` → About page hero
 
 Use `next/image` with proper `sizes`, meaningful `alt` text (in `docs/content.md`), and `priority` only on the first visible image.
 
-## Motion
+(`harbour.jpg` is no longer used — v5 removed it. Delete `public/images/harbour.jpg`.) Three photos in total: street, rooftop, laugh.
 
-- Panels fade in (opacity 0→1, translateY 12px→0) once when they enter the viewport, 400ms ease-out.
-- Theme change cross-fades colours in 300ms.
-- Circle markers fill on hover (150ms).
-- Nothing loops, bounces, counts up or parallaxes. With reduced motion, everything appears instantly.
+## Motion (v5 — full spec in `docs/design/v5-motion.html`)
+
+- Panels fade in (opacity 0→1, translateY 12px→0) once when they enter the viewport, 400ms ease-out. Panel titles additionally slide up from behind a mask line, 500ms, once.
+- **Theme switch = circle reveal**: use the View Transitions API (`document.startViewTransition`) so the new theme spreads as a circle from the centre of the control that was pressed, 900ms, `cubic-bezier(.7,0,.3,1)`. Apply the theme change synchronously inside the transition (`flushSync` / set `data-theme` directly) so the snapshot is correct. Fallback where unsupported or under reduced motion: instant switch.
+- **Page transitions**: cross-fade 250ms between routes; a Work tile's title morphs into the project page's large title (shared-element transition with a matching `view-transition-name`). Use Next.js's supported View Transitions integration for this version — check `node_modules/next/dist/docs/` first.
+- **Work item hover**: circle marker fills (150ms) and a 1px line draws under the title left→right (350ms).
+- **Research abstracts** open/close in place with a 300ms height + fade transition; buttons use `aria-expanded`.
+- Nothing else loops, bounces, counts up or parallaxes. With reduced motion, everything appears instantly.
+
+## Character (v5)
+
+- **A — Random walk on the cover** (`CoverWalk.jsx`, client component, SVG): 24 paths of a log random walk (σ = 0.25, 90 steps) across the full cover panel behind the name, stroke `--dim` at 22% opacity, plus 1 highlighted path in `--strong` at 55%. A **new random seed on every visit**. Draw once with `stroke-dasharray`/`stroke-dashoffset` in three staggered groups (0 / 0.45 / 0.9s, ~6s) and then stay still. "Fig. 0 — 24 random walks, σ = 0.25" + a "Redraw ↻" button top-right re-runs it with a new seed. `aria-hidden`; under reduced motion paths appear fully drawn. Generate paths client-side after mount (avoid hydration mismatch). Algorithm: `walks()` in `v5-home-desktop.html`.
+- **B — Circle cursor** (`CircleCursor.jsx`, mounted once in the layout): 16px ring, 1px `#fff` border, `mix-blend-mode: difference`, follows the pointer with easing (lerp 0.22 per animation frame; transform only). Grows to 40px over `a, button`; 56px and filled over elements with `data-cursor="work"` (Work tiles). Enable **only** when `(hover: hover) and (pointer: fine)` matches; hide the native cursor only then. Keep the native text cursor in inputs. Under reduced motion: no easing (snaps). Never blocks clicks (`pointer-events: none`).
+- **C — Number scramble: on standby. Do not build** unless Krish asks.
 
 ## Rules
 
-- **Never invent facts, numbers, links or achievements.** Every number comes from `docs/content.md`. Missing things (GitHub URL, LinkedIn URL, CV PDF) stay as clearly marked `TODO` placeholders until Krish provides them.
+- **Never invent facts, numbers, links or achievements.** Every number comes from `docs/content.md`. Anything still marked TODO in content.md (e.g. the CV PDF) stays as a clearly marked placeholder until Krish provides it.
 - Keep text short. The design works because it says little. Don't add sections, taglines, testimonials, skill bars, badges, icons, emoji, gradients, glassmorphism, rounded cards or stock imagery.
 - Greyscale only. No accent colour.
 - Accessibility: semantic HTML, one `h1` per page, real `<button>`/`<a>`, visible focus ring (1px `--strong` outline, offset 3px), touch targets ≥ 44px, text contrast ≥ 4.5:1, `aria-pressed` on theme buttons, skip-to-content link.
