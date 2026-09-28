@@ -1,30 +1,14 @@
 // Port of the Fig. 1 algorithm in docs/design/v3-project.html. The RNG call
 // order must stay identical to the mockup so the readouts match it exactly.
 
+import { rng, normal } from "@/lib/random";
+
 const K = 60;
 const N_CAL = 500;
 const REPS = 1000;
 export const X_MAX = 5;
 export const Y_MIN = -3;
 export const Y_MAX = 9;
-
-// mulberry32
-function rng(seed) {
-  let a = seed >>> 0;
-  return function () {
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function normal(r) {
-  let u = 0;
-  while (u === 0) u = r();
-  const v = r();
-  return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
-}
 
 let data;
 function getData() {

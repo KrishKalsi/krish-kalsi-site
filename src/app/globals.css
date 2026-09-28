@@ -75,7 +75,35 @@ html {
   outline-offset: 3px;
 }
 
+/* Fig. 0 cover walks draw once, left to right, in staggered groups. Paths
+   use pathLength="1", so a dash of 1 covers any walk at any panel width. */
+@keyframes walk-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.walk {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: walk-draw 6.5s cubic-bezier(0.33, 0.1, 0.25, 1) forwards;
+}
+.walk-2 {
+  animation-delay: 0.45s;
+}
+.walk-3 {
+  animation-delay: 0.9s;
+}
+.walk-hi {
+  animation-delay: 1.5s;
+  animation-duration: 5s;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  /* The rule below removes the animation; without this the walks would stay hidden. */
+  .walk {
+    stroke-dashoffset: 0;
+  }
+
   *,
   *::before,
   *::after {
