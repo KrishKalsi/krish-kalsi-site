@@ -3,6 +3,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import SkipLink from "@/components/SkipLink";
 import MenuBar from "@/components/MenuBar";
 import Footer from "@/components/Footer";
+import CircleCursor from "@/components/CircleCursor";
 import "./globals.css";
 
 const geist = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
             </main>
             <Footer />
           </div>
+          <CircleCursor />
         </ThemeProvider>
       </body>
     </html>

@@ -98,6 +98,54 @@ html {
   animation-duration: 5s;
 }
 
+/* Circle cursor (CircleCursor.jsx). Fixed #fff + difference blend so it reads
+   on either theme and over photos. Only shown, and the native cursor only
+   hidden, once the component has confirmed a fine, hovering pointer. */
+.circle-cursor-ring {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #fff;
+  border-radius: 9999px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+html.circle-cursor .circle-cursor-ring {
+  display: block;
+}
+.circle-cursor-ring[data-visible="true"] {
+  opacity: 1;
+}
+.circle-cursor-ring[data-state="link"] {
+  width: 40px;
+  height: 40px;
+}
+.circle-cursor-ring[data-state="work"] {
+  width: 56px;
+  height: 56px;
+  background-color: #fff;
+}
+.circle-cursor-ring[data-state="text"] {
+  opacity: 0;
+}
+html.circle-cursor,
+html.circle-cursor * {
+  cursor: none;
+}
+html.circle-cursor :is(input, textarea, select, [contenteditable="true"]) {
+  cursor: text;
+}
+
 @media (prefers-reduced-motion: reduce) {
   /* The rule below removes the animation; without this the walks would stay hidden. */
   .walk {
