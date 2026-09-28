@@ -14,20 +14,30 @@ function WorkItem({ item }) {
         {item.no} — {item.area}
       </span>
       <span className="mt-1.5 text-lg leading-[1.25] uppercase sm:text-xl">{item.title}</span>
+      <span
+        aria-hidden="true"
+        className="block h-px origin-left scale-x-0 bg-strong transition-transform duration-350 ease-[cubic-bezier(.2,.7,.2,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transition-none"
+      />
       <span className="text-sm text-text sm:text-[15px]">{item.detail}</span>
     </>
   );
 
   if (item.external) {
     return (
-      <a href={profile.github} target="_blank" rel="noopener noreferrer" className={itemClass}>
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-cursor="work"
+        className={itemClass}
+      >
         {label}
       </a>
     );
   }
 
   return (
-    <Link href={item.href} className={itemClass}>
+    <Link href={item.href} data-cursor="work" className={itemClass}>
       {label}
     </Link>
   );
