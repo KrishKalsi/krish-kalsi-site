@@ -14,14 +14,11 @@
 body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .kk-root,.kk-root a,.kk-root button{cursor:none}
-@keyframes kkdraw{from{stroke-dashoffset:2600}to{stroke-dashoffset:0}}
-.kk-walk{stroke-dasharray:2600;stroke-dashoffset:2600;animation:kkdraw 6.5s cubic-bezier(.33,.1,.25,1) forwards}
-.kk-walk-2{animation-delay:.45s}.kk-walk-3{animation-delay:.9s}.kk-walk-hi{animation-delay:1.5s;animation-duration:5s}
 .kk-item .kk-dot{transition:background-color .15s ease}
 .kk-item:hover .kk-dot{background-color:currentColor}
 .kk-item .kk-line{transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
 .kk-item:hover .kk-line{transform:scaleX(1)}
-@media (prefers-reduced-motion: reduce){.kk-walk{animation:none;stroke-dashoffset:0}.kk-item .kk-line{transition:none}}
+@media (prefers-reduced-motion: reduce){.kk-item .kk-line{transition:none}}
 </style>
 </helmet>
 <div id="top" class="kk-root" ref="{{refs.root}}" onMouseMove="{{onMove}}" onMouseLeave="{{onLeave}}" style="position: relative; width: 1440px; height: 4320px; box-sizing: border-box; background: {{t.bg}}; color: {{t.text}}; font-family: 'Geist', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; overflow: hidden">
@@ -47,28 +44,8 @@ a{color:inherit}
 <main style="padding: 48px 64px 0; display: flex; flex-direction: column; gap: 40px">
 
 <section style="position: relative; height: 760px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid {{t.line}}; background: {{t.panel}}; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden">
-<sc-if value="{{even}}" hint-placeholder-val="{{true}}">
-<svg width="1310" height="758" aria-hidden="true" style="position: absolute; left: 0; top: 0">
-<path class="kk-walk" d="{{walk.g1}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
-<path class="kk-walk kk-walk-2" d="{{walk.g2}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
-<path class="kk-walk kk-walk-3" d="{{walk.g3}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
-<path class="kk-walk kk-walk-hi" d="{{walk.hi}}" style="fill: none; stroke: {{t.strong}}; stroke-opacity: 0.55; stroke-width: 1.2px"></path>
-</svg>
-</sc-if>
-<sc-if value="{{odd}}" hint-placeholder-val="{{false}}">
-<svg width="1310" height="758" aria-hidden="true" style="position: absolute; left: 0; top: 0">
-<path class="kk-walk" d="{{walk.g1}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
-<path class="kk-walk kk-walk-2" d="{{walk.g2}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
-<path class="kk-walk kk-walk-3" d="{{walk.g3}}" style="fill: none; stroke: {{t.dim}}; stroke-opacity: 0.22; stroke-width: 1px"></path>
-<path class="kk-walk kk-walk-hi" d="{{walk.hi}}" style="fill: none; stroke: {{t.strong}}; stroke-opacity: 0.55; stroke-width: 1.2px"></path>
-</svg>
-</sc-if>
 <div style="position: relative">
-<div style="position: absolute; right: 0; top: 0; display: flex; align-items: center; gap: 14px; font-size: 12px; text-transform: uppercase; color: {{t.dim}}">
-<span>Fig. 0 — 24 random walks, σ = 0.25</span>
-<button onClick="{{redraw}}" aria-label="Redraw the random walks" style="min-height: 44px; padding: 0 2px; background: none; border: none; font: inherit; text-transform: inherit; color: {{t.strong}}">Redraw ↻</button>
-</div>
-<h1 style="margin: 44px 0 0; font-size: 212px; line-height: 0.84; font-weight: 300; letter-spacing: -0.055em; color: {{t.strong}}">Krish Kalsi</h1>
+<h1 style="margin: 0; font-size: 212px; line-height: 0.84; font-weight: 300; letter-spacing: -0.055em; color: {{t.strong}}">Krish Kalsi</h1>
 <p style="margin: 40px 0 0 8px; font-size: 22px; line-height: 1.4; max-width: 520px; color: {{t.text}}">Data science student</p>
 </div>
 <div style="position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; align-items: end; padding-left: 8px; font-size: 12px; line-height: 1.4; text-transform: uppercase">
@@ -184,32 +161,6 @@ a{color:inherit}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":1440,"height":4320}}'>
 class Component extends DCLogic {
-  rng(seed) {
-    let a = seed >>> 0;
-    return function () {
-      a = (a + 0x6D2B79F5) | 0;
-      let t = Math.imul(a ^ (a >>> 15), 1 | a);
-      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-  }
-  walks(seed) {
-    const r = this.rng(seed);
-    const nrm = () => { let u = 0; while (u === 0) u = r(); const v = r(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
-    const W = 1310, y0 = 470, steps = 90, sg = 0.25, k = 620, f = v => v.toFixed(1);
-    const one = () => {
-      let ls = 0, d = 'M0 ' + y0;
-      for (let i = 1; i <= steps; i++) {
-        ls += sg * Math.sqrt(1 / steps) * nrm();
-        const y = Math.min(Math.max(y0 - ls * k, 24), 740);
-        d += 'L' + f(i / steps * W) + ' ' + f(y);
-      }
-      return d;
-    };
-    let g1 = '', g2 = '', g3 = '';
-    for (let i = 0; i < 8; i++) { g1 += one(); g2 += one(); g3 += one(); }
-    return { g1: g1, g2: g2, g3: g3, hi: one() };
-  }
   isLight() {
     const st = this.state || {};
     return st.light !== undefined ? st.light : this.props.theme === 'light';
@@ -258,10 +209,6 @@ class Component extends DCLogic {
     t.lDot = light ? t.strong : 'transparent';
     t.dCol = light ? t.dim : t.strong;
     t.lCol = light ? t.strong : t.dim;
-    if (this._seed === undefined) this._seed = Math.floor(Math.random() * 1e9);
-    const gen = st.gen || 0;
-    const seed = this._seed + gen * 7919;
-    if (this._wseed !== seed) { this._walk = this.walks(seed); this._wseed = seed; }
     if (!this._refs) this._refs = { root: el => { this._root = el; }, cur: el => { this._cur = el; }, ov: el => { this._ov = el; } };
     const open = st.open || { P1: true };
     const papers = [
@@ -282,9 +229,8 @@ class Component extends DCLogic {
       { no: '06', area: 'Econometrics', title: 'Electricity demand', detail: '≈ 5% CV error on 2,900 days', href: '#' }
     ];
     return {
-      t: t, isDark: !light, isLight: light, walk: this._walk, even: gen % 2 === 0, odd: gen % 2 === 1,
+      t: t, isDark: !light, isLight: light,
       refs: this._refs, papers: papers, work: work,
-      redraw: () => this.setState({ gen: gen + 1 }),
       setDark: e => this.reveal(e, false),
       setLight: e => this.reveal(e, true),
       toggle: e => this.reveal(e, !light),

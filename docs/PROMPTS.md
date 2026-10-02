@@ -78,6 +78,17 @@ Then check in the browser: move the mouse around, hover Work items, switch Dark/
 Add per-page metadata, an Open Graph image generated with next/og in the cover style, sitemap.js, robots.js, Person JSON-LD on the home page and @vercel/analytics. Run a production build and a Lighthouse check, and get all four scores to 95 or above.
 ```
 
+## Step 7.5 — Remove the random walk, add the loading screen (plan mode, Opus)
+
+```
+Two changes. Re-read the Character section of CLAUDE.md and the Cover and Loading screen sections of docs/content.md, and open docs/design/v5-loader.html (the loader mockup; its script has the exact timeline) plus the updated v5-home-desktop.html and v5-home-mobile.html. Then, as two separate commits:
+1. Remove the random walk completely: CoverWalk.jsx, lib/walks.js, the Fig. 0 caption and Redraw button, and any CSS or helpers only they used. The cover goes back to the plain wordmark layout in the v5 mockup.
+2. Add the loading screen exactly as CLAUDE.md specifies: counter 000→100, the centre ring that draws, fills and then opens the page with a circular reveal; first load of a session only; skippable by any click, key, wheel or touch; not shown under reduced motion; never delays the real content. Check there is no flash of the page before the overlay, and no flash of the overlay on later navigations or refreshes in the same session.
+Show me your plan first. Afterwards run lint and build, check 1440, 768 and 390px in both themes, and re-run Lighthouse to confirm the scores did not drop.
+```
+
+Then test it: open the site in a new tab (loader plays), refresh (loader should not play), close the tab and open a new one (plays again), and click during the loader (it should skip).
+
 ## Step 8 — Final review (Opus)
 
 ```

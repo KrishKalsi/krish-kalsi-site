@@ -29,7 +29,6 @@ export const ramp = [
 ];
 
 const MARGIN = 40;
-export const panelSize = { w: ogSize.width - MARGIN * 2, h: ogSize.height - MARGIN * 2 };
 
 async function fonts() {
   const dir = join(process.cwd(), "src/assets/fonts");
@@ -52,7 +51,7 @@ export function Label({ label, value }) {
   );
 }
 
-export async function ogImage({ background, top, middle, bottom }) {
+export async function ogImage({ top, middle, bottom }) {
   return new ImageResponse(
     <div
       style={{
@@ -76,11 +75,9 @@ export async function ogImage({ background, top, middle, bottom }) {
           background: t.panel,
         }}
       >
-        {background}
         {/* Satori treats a fragment as one row box, so content comes in as slots. */}
         <div
           style={{
-            position: "relative",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",

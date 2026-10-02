@@ -19,7 +19,7 @@ body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoot
 <section style="height: 260px; box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid #383836; background: #111111; display: flex; flex-direction: column; justify-content: space-between">
 <div style="display: flex; justify-content: space-between; align-items: baseline"><h1 style="margin: 0; font-size: 120px; line-height: 0.86; font-weight: 300; letter-spacing: -0.055em; color: #E9E9E5">Motion &amp; character</h1><span style="font-size: 13px; color: #8A8A86">v5</span></div>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; font-size: 12px; line-height: 1.45; text-transform: uppercase">
-<div><div style="color: #8A8A86">Character:</div><div style="color: #E9E9E5">A — random walk · B — circle cursor</div></div>
+<div><div style="color: #8A8A86">Character:</div><div style="color: #E9E9E5">Loading screen · Circle cursor</div></div>
 <div><div style="color: #8A8A86">Standby:</div><div style="color: #E9E9E5">C — number scramble</div></div>
 <div><div style="color: #8A8A86">Removed:</div><div style="color: #E9E9E5">Harbour photo</div></div>
 <div><div style="color: #8A8A86">Rule:</div><div style="color: #E9E9E5">Everything off under reduced motion</div></div>
@@ -29,13 +29,13 @@ body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoot
 <section style="box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid #383836; background: #111111; display: grid; grid-template-columns: 220px repeat(2, minmax(0, 1fr)); gap: 32px 48px">
 <div style="grid-row: span 2; font-size: 12px; text-transform: uppercase; color: #8A8A86">Character:</div>
 <div>
-<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8A8A86"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid #E9E9E5; background: #E9E9E5"></span>A — Random walk on the cover</div>
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8A8A86"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid #E9E9E5; background: #E9E9E5"></span>A — Loading screen (replaces the random walk, which is removed)</div>
 <ul style="margin: 14px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.5">
-<li>24 paths (σ = 0.25) behind the name, 22% opacity; one path highlighted at 55%.</li>
-<li>New random seed on every visit, so no two visitors see the same cover.</li>
-<li>Draws once, left to right, in three staggered groups (0 / 0.45 / 0.9 s, ~6 s total). Then stays still.</li>
-<li>"Redraw ↻" re-runs it. Decorative only: hidden from screen readers.</li>
-<li>Reduced motion: paths appear fully drawn, no animation.</li>
+<li>Full-screen, page background. Counter 000 → 100 bottom-left in the wordmark style; KK© top-left; “Loading:” label bottom-right.</li>
+<li>A 44 px ring at the centre draws clockwise with the count (1.5 s), fills solid (0.25 s), then the page opens as a circle from it (0.95 s). About 2.8 s in total.</li>
+<li>First visit of a session only. Any click, key or scroll skips it.</li>
+<li>Skipped entirely under reduced motion. The page loads underneath, so content is never delayed.</li>
+<li>Follows the visitor’s theme. The cover itself has no figure or animation.</li>
 </ul>
 </div>
 <div>

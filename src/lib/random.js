@@ -1,4 +1,4 @@
-// Seeded RNG shared by the mockup ports (Fig. 0 cover walks, Fig. 1 chart).
+// Seeded RNG for the Fig. 1 chart (ported from v3-project.html).
 
 // mulberry32
 export function rng(seed) {

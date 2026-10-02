@@ -64,9 +64,16 @@ v5: formal publication list, full-width panel, **no photo**. Header right: "(03)
 
 (Mobile meta lines are shortened to the first two parts, e.g. "Systematic review · In final revision".)
 
-## Cover figure (v5)
+## Cover
 
-- Caption, top-right of cover: "Fig. 0 — 24 random walks, σ = 0.25" with a "Redraw ↻" button
+No figure, caption or Redraw button (the random walk was removed).
+
+## Loading screen
+
+- Top-left: KK©
+- Top-right: Portfolio ’26
+- Counter: 000 → 100 (three digits, zero-padded)
+- Bottom-right label: "Loading:" then "Krish Kalsi — Data science student"
 
 ## Experience
 

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Loading screen — counter and ring</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; background: #0A0A0A; color: #B9B9B5; font-family: 'Geist', 'Helvetica Neue', sans-serif">
+
+<div style="position: absolute; left: 0; top: 0; width: 1440px; height: 900px; background: #0A0A0A">
+<div style="position: absolute; left: 64px; top: 36px; font-size: 13px; font-weight: 600; letter-spacing: -0.02em; color: #E9E9E5">KK©</div>
+<div style="position: absolute; right: 64px; top: 36px; font-size: 13px; color: #8A8A86">Portfolio ’26</div>
+<svg width="1440" height="900" aria-hidden="true" style="position: absolute; left: 0; top: 0">
+<circle cx="720" cy="450" r="22" style="fill: none; stroke: #383836; stroke-width: 1px"></circle>
+<path d="{{arc}}" style="fill: none; stroke: #E9E9E5; stroke-width: 1.5px"></path>
+<circle cx="720" cy="450" r="{{dot}}" style="fill: #E9E9E5"></circle>
+</svg>
+<div style="position: absolute; left: 56px; bottom: 36px; font-size: 212px; line-height: 0.84; font-weight: 300; letter-spacing: -0.055em; color: #E9E9E5; font-variant-numeric: tabular-nums">{{count}}</div>
+<div style="position: absolute; right: 64px; bottom: 44px; text-align: right; font-size: 12px; line-height: 1.5; text-transform: uppercase">
+<div style="color: #8A8A86">Loading:</div>
+<div style="color: #E9E9E5">Krish Kalsi — Data science student</div>
+</div>
+</div>
+
+<div style="position: absolute; left: 0; top: 0; width: 1440px; height: 900px; background: #0A0A0A; clip-path: {{clip}}">
+<div style="position: absolute; left: 0; top: 0; width: 1440px; height: 44px; box-sizing: border-box; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #383836; font-size: 13px">
+<div style="display: flex; gap: 28px"><span style="color: #E9E9E5; font-weight: 500">/KrishKalsi</span><span>Work</span><span>Research</span><span>About</span><span>CV</span><span>Contact</span></div>
+<div style="display: flex; gap: 24px"><span style="color: #E9E9E5">● Dark</span><span style="color: #8A8A86">○ Light</span><span style="color: #8A8A86">Mumbai, IST</span></div>
+</div>
+<div style="position: absolute; left: 64px; top: 92px; width: 1312px; height: 760px; box-sizing: border-box; border: 1px solid #383836; background: #111111"></div>
+<div style="position: absolute; left: 101px; top: 165px; font-size: 212px; line-height: 0.84; font-weight: 300; letter-spacing: -0.055em; color: #E9E9E5; white-space: nowrap">Krish Kalsi</div>
+<div style="position: absolute; left: 109px; top: 383px; font-size: 22px; color: #B9B9B5">Data science student</div>
+<div style="position: absolute; left: 109px; right: 101px; top: 780px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; align-items: end; font-size: 12px; line-height: 1.4; text-transform: uppercase">
+<div><div style="font-size: 13px; font-weight: 600; text-transform: none; color: #E9E9E5">KK©</div><div style="margin-top: 8px; display: flex"><span style="width: 11px; height: 9px; background: #F2F2F0"></span><span style="width: 11px; height: 9px; background: #D6D6D3"></span><span style="width: 11px; height: 9px; background: #BBBBB8"></span><span style="width: 11px; height: 9px; background: #A0A09D"></span><span style="width: 11px; height: 9px; background: #858582"></span><span style="width: 11px; height: 9px; background: #6B6B68"></span><span style="width: 11px; height: 9px; background: #52524F"></span><span style="width: 11px; height: 9px; background: #3B3B39"></span><span style="width: 11px; height: 9px; background: #262625"></span><span style="width: 11px; height: 9px; background: #141413; outline: 1px solid #383836"></span></div></div>
+<div><div style="color: #8A8A86">Mail:</div><div style="color: #E9E9E5">krishkalsi9@gmail.com</div></div>
+<div><div style="color: #8A8A86">Based:</div><div style="color: #E9E9E5">Mumbai, India — 19.07°N 72.87°E</div></div>
+<div style="text-align: right; font-size: 30px; font-weight: 300; letter-spacing: -0.03em; text-transform: none; color: #E9E9E5">Portfolio ’26</div>
+</div>
+</div>
+
+<sc-if value="{{showPlay}}" hint-placeholder-val="{{true}}">
+<button onClick="{{play}}" style="position: absolute; left: 620px; top: 28px; width: 200px; min-height: 44px; border: 1px solid #E9E9E5; background: #0A0A0A; color: #E9E9E5; font: inherit; font-size: 12px; text-transform: uppercase; cursor: pointer">▶ Play loader</button>
+</sc-if>
+<sc-if value="{{showReplay}}" hint-placeholder-val="{{false}}">
+<button onClick="{{play}}" style="position: absolute; left: 620px; top: 108px; width: 200px; min-height: 44px; border: 1px solid #E9E9E5; background: #111111; color: #E9E9E5; font: inherit; font-size: 12px; text-transform: uppercase; cursor: pointer">Replay ↻</button>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  play() {
+    cancelAnimationFrame(this._raf);
+    const t0 = performance.now();
+    const loop = () => {
+      const t = performance.now() - t0;
+      if (t >= 2800) { this.setState({ phase: 'done', t: 2800 }); return; }
+      this.setState({ phase: 'run', t: t });
+      this._raf = requestAnimationFrame(loop);
+    };
+    loop();
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); }
+  renderVals() {
+    const st = this.state || {};
+    const phase = st.phase || 'idle';
+    const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    let p = 0.62, fill = 0, rv = 0;
+    if (phase !== 'idle') {
+      p = ease(Math.min(st.t / 1500, 1));
+      fill = st.t < 1500 ? 0 : Math.min((st.t - 1500) / 250, 1);
+      rv = st.t < 1850 ? 0 : ease(Math.min((st.t - 1850) / 950, 1));
+    }
+    if (phase === 'done') rv = 1;
+    const f = v => v.toFixed(2);
+    const cx = 720, cy = 450, r = 22, a = Math.min(p, 0.9999) * 2 * Math.PI;
+    const ex = cx + r * Math.sin(a), ey = cy - r * Math.cos(a);
+    const arc = 'M' + cx + ' ' + (cy - r) + 'A' + r + ' ' + r + ' 0 ' + (p > 0.5 ? 1 : 0) + ' 1 ' + f(ex) + ' ' + f(ey);
+    const R = Math.hypot(720, 450) + 4;
+    return {
+      arc: arc, dot: f(3 + fill * 19),
+      clip: 'circle(' + f(rv * R) + 'px at 720px 450px)',
+      count: String(Math.round(p * 100)).padStart(3, '0'),
+      showPlay: phase === 'idle', showReplay: phase === 'done',
+      play: () => this.play()
+    };
+  }
+}
+</script>
+</body>
+</html>

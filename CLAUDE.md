@@ -59,7 +59,7 @@ Use `clamp()` so large type scales smoothly between breakpoints.
 
 | Route | Contents | Mockup |
 |---|---|---|
-| `/` | Cover (with random walk) → About → Work (6) → Research (3, formal list, no photo) → Experience (3) → Contact → footer | `docs/design/v5-home-desktop.html`, `v5-home-mobile.html` |
+| `/` | Cover (plain, no figure) → About → Work (6) → Research (3, formal list, no photo) → Experience (3) → Contact → footer | `docs/design/v5-home-desktop.html`, `v5-home-mobile.html` |
 | `/work/[slug]` | Project page. Build `conformal-prediction` fully first; other slugs use the same template once Krish writes them. Until then, their Work tiles link to GitHub. | `v3-project.html` |
 | `/about` | About hero with photo, Education, Coursework + Skills, Certifications + Beyond class, CV download | `v3-about.html` |
 | `/cv` | Redirects to `/cv/krish-kalsi-cv.pdf` in `public/` | — |
@@ -90,7 +90,13 @@ Use `next/image` with proper `sizes`, meaningful `alt` text (in `docs/content.md
 
 ## Character (v5)
 
-- **A — Random walk on the cover** (`CoverWalk.jsx`, client component, SVG): 24 paths of a log random walk (σ = 0.25, 90 steps) across the full cover panel behind the name, stroke `--dim` at 22% opacity, plus 1 highlighted path in `--strong` at 55%. A **new random seed on every visit**. Draw once with `stroke-dasharray`/`stroke-dashoffset` in three staggered groups (0 / 0.45 / 0.9s, ~6s) and then stay still. "Fig. 0 — 24 random walks, σ = 0.25" + a "Redraw ↻" button top-right re-runs it with a new seed. `aria-hidden`; under reduced motion paths appear fully drawn. Generate paths client-side after mount (avoid hydration mismatch). Algorithm: `walks()` in `v5-home-desktop.html`.
+- **The random walk is removed (2 Oct 2026).** Delete `CoverWalk.jsx`, `lib/walks.js`, the "Fig. 0" caption and the Redraw button, and anything only they used. The cover is plain: wordmark, "Data science student", label row. No figure or animation on the cover.
+- **A — Loading screen** (`Loader.jsx`, client component, mounted once in the root layout; mockup `docs/design/v5-loader.html`):
+  - Full-viewport fixed overlay in `--bg`, above everything (including the circle cursor's z-index is fine either way). Contents: "KK©" top-left; "Portfolio ’26" top-right in `--dim`; counter `000 → 100` bottom-left in the wordmark style (weight 300, tracking −0.055em, `clamp(96px, 15vw, 212px)`, tabular numerals); bottom-right label "Loading:" (`--dim`) over "Krish Kalsi — Data science student" (`--strong`), 12px caps.
+  - Centre of the screen: a 44px ring. Track 1px `--line`; progress arc 1.5px `--strong` drawn clockwise from 12 o'clock in step with the counter; a 3px dot in the middle.
+  - Timeline: 0–1500ms counter and ring run 0→100 (ease-in-out cubic); 1500–1750ms the centre dot grows to fill the ring; 1850–2800ms the overlay is removed with a circular reveal from the screen centre (animate `clip-path`/mask so the real page shows through an expanding circle, `cubic-bezier(.7,0,.3,1)`); then unmount.
+  - Rules: plays **only on the first page load of a browser session** (`sessionStorage`), on whichever page is the entry page. Any click, key press, wheel or touch **skips** straight to the reveal. **Not shown at all** under `prefers-reduced-motion`. The page renders and hydrates underneath — the loader must never delay content, LCP or SEO: server-render the page normally and make the loader a purely visual overlay; avoid a flash of the page before the overlay appears (render the overlay in the initial HTML, and remove it instantly with a tiny inline script when the session flag is already set or reduced motion is on).
+  - Follows the current theme tokens. `aria-hidden="true"`; lock scroll while it is visible; move focus nowhere (the page keeps normal focus order). It is exempt from the "nothing counts up" rule.
 - **B — Circle cursor** (`CircleCursor.jsx`, mounted once in the layout): 16px ring, 1px `#fff` border, `mix-blend-mode: difference`, follows the pointer with easing (lerp 0.22 per animation frame; transform only). Grows to 40px over `a, button`; 56px and filled over elements with `data-cursor="work"` (Work tiles). Enable **only** when `(hover: hover) and (pointer: fine)` matches; hide the native cursor only then. Keep the native text cursor in inputs. Under reduced motion: no easing (snaps). Never blocks clicks (`pointer-events: none`).
 - **C — Number scramble: on standby. Do not build** unless Krish asks.
 

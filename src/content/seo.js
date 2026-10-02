@@ -15,6 +15,6 @@ export const pageSeo = {
 };
 
 export const ogAlt = {
-  home: "Krish Kalsi — Data science student. Random walks behind the name.",
+  home: "Krish Kalsi — Data science student, Mumbai.",
   project: "Project title and details, by Krish Kalsi",
 };

@@ -1,5 +1,4 @@
-import { ogImage, ogSize, ogTokens as t, panelSize, ramp, Label } from "@/lib/og";
-import { walks } from "@/lib/walks";
+import { ogImage, ogSize, ogTokens as t, ramp, Label } from "@/lib/og";
 import { profile } from "@/content/profile";
 import { ogAlt } from "@/content/seo";
 
@@ -7,37 +6,10 @@ export const alt = ogAlt.home;
 export const size = ogSize;
 export const contentType = "image/png";
 
-// A fixed seed so the shared image is stable (the live cover reseeds per visit).
-const SEED = 2026;
-
 export default async function Image() {
-  const { w, h } = panelSize;
-  const paths = walks(SEED, w, h);
-
-  const background = (
-    <svg
-      width={w}
-      height={h}
-      viewBox={`0 0 ${w} ${h}`}
-      style={{ position: "absolute", top: 0, left: 0 }}
-    >
-      {paths.groups.flat().map((d, i) => (
-        <path key={i} d={d} fill="none" stroke={t.dim} strokeOpacity="0.22" strokeWidth="1" />
-      ))}
-      <path
-        d={paths.highlight}
-        fill="none"
-        stroke={t.strong}
-        strokeOpacity="0.55"
-        strokeWidth="1.2"
-      />
-    </svg>
-  );
-
   return ogImage({
-    background,
     top: (
-      <div style={{ display: "flex", flexDirection: "column", marginTop: 44 }}>
+      <div style={{ display: "flex", flexDirection: "column", marginTop: 8 }}>
         <div
           style={{
             fontSize: 188,

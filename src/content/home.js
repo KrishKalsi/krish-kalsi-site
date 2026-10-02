@@ -5,13 +5,6 @@
 export const aboutStatement =
   "Third-year data science student at NMIMS, Mumbai. I build models whose claims can be checked — prediction intervals, simulations, forecasts — and I’m most at home where statistics meets markets.";
 
-// Source: docs/content.md → Cover figure (v5).
-export const coverFigure = {
-  caption: "Fig. 0 — 24 random walks, σ = 0.25",
-  redraw: "Redraw ↻",
-  redrawLabel: "Redraw the random walks",
-};
-
 // `lines` is an array so two-line values render via <br/> without raw HTML.
 export const aboutLabels = [
   { label: "Education:", lines: ["B.Tech Data Science, NMIMS MPSTME", "2024–28 · CGPA 8.43"] },
