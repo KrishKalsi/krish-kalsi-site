@@ -5,11 +5,6 @@
 // hydrate. Elements added later (client-side navigation) are picked up by the
 // MutationObserver.
 //
-// Whatever is already on screen while the page is loading appears at once
-// (data-revealed="instant"); only content scrolled to afterwards animates
-// (data-revealed="fade"). Fading the first screen in would hold back Largest
-// Contentful Paint by the length of the fade.
-//
 // The hiding and the animation live in globals.css behind html[data-reveal-ready]
 // and prefers-reduced-motion: no-preference, so without JS, without
 // IntersectionObserver, or under reduced motion, everything is simply visible.
@@ -19,16 +14,12 @@ function reveal() {
   if (!("IntersectionObserver" in window)) return;
   var html = document.documentElement;
   html.setAttribute("data-reveal-ready", "");
-  var loading = true;
-  addEventListener("load", function () {
-    loading = false;
-  });
 
   function observer(options) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        entry.target.setAttribute("data-revealed", loading ? "instant" : "fade");
+        entry.target.setAttribute("data-revealed", "");
         io.unobserve(entry.target);
       });
     }, options);
