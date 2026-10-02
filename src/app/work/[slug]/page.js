@@ -5,6 +5,7 @@ import MethodPanel from "@/components/project/MethodPanel";
 import NextProjectPanel from "@/components/project/NextProjectPanel";
 import { projects } from "@/content/projects";
 import { work } from "@/content/work";
+import { pageMetadata } from "@/lib/pageMetadata";
 
 const figures = { conformal: ConformalFigure };
 
@@ -24,7 +25,7 @@ function load(slug) {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const { project, tile } = load(slug);
-  return { title: `${tile.title} — Krish Kalsi`, description: project.abstract };
+  return pageMetadata({ title: tile.title, description: project.abstract, path: `/work/${slug}` });
 }
 
 export default async function ProjectPage({ params }) {

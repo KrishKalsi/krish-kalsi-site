@@ -75,6 +75,38 @@ html {
   outline-offset: 3px;
 }
 
+/* Once-on-scroll reveals (src/lib/revealScript.js). Hidden only when the
+   script is running and motion is allowed; content on screen at load is
+   marked "instant" and simply shows. The animations fill backwards
+   only, so once finished they release opacity and translate (the Next
+   project panel keeps its own 150ms hover fade). */
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+}
+@keyframes title-in {
+  from {
+    translate: 0 110%;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-reveal-ready] [data-reveal="panel"]:not([data-revealed]) {
+    opacity: 0;
+    translate: 0 12px;
+  }
+  html[data-reveal-ready] [data-reveal="panel"][data-revealed="fade"] {
+    animation: panel-in 400ms ease-out backwards;
+  }
+  html[data-reveal-ready] [data-reveal="title"]:not([data-revealed]) > * {
+    translate: 0 110%;
+  }
+  html[data-reveal-ready] [data-reveal="title"][data-revealed="fade"] > * {
+    animation: title-in 500ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  }
+}
+
 /* Fig. 0 cover walks draw once, left to right, in staggered groups. Paths
    use pathLength="1", so a dash of 1 covers any walk at any panel width. */
 @keyframes walk-draw {

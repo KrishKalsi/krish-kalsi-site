@@ -1,10 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import cx from "@/lib/cx";
-import { panelFadeIn } from "@/lib/motion";
 
 const frame = "border border-line bg-panel";
 
@@ -17,19 +13,16 @@ const body =
 // module-scope reference — the react-hooks/static-components rule forbids a
 // JSX tag whose identifier is computed in the render body (even a lookup),
 // so which one renders is chosen by branching, never by assigning a variable.
-const MotionSection = motion.section;
-const MotionDiv = motion.div;
-const MotionA = motion.a;
-const MotionLink = motion.create(Link);
+//
+// data-reveal="panel" opts into the once-on-scroll fade (see revealScript.js).
 
 export default function Panel({ as = "section", className, children, ...rest }) {
-  const reduce = useReducedMotion();
-  const props = { className: cx(frame, body, className), ...panelFadeIn(reduce), ...rest };
+  const props = { className: cx(frame, body, className), "data-reveal": "panel", ...rest };
 
-  if (as === Link) return <MotionLink {...props}>{children}</MotionLink>;
-  if (as === "a") return <MotionA {...props}>{children}</MotionA>;
-  if (as === "div") return <MotionDiv {...props}>{children}</MotionDiv>;
-  return <MotionSection {...props}>{children}</MotionSection>;
+  if (as === Link) return <Link {...props}>{children}</Link>;
+  if (as === "a") return <a {...props}>{children}</a>;
+  if (as === "div") return <div {...props}>{children}</div>;
+  return <section {...props}>{children}</section>;
 }
 
 // A panel split by a 1px rule: full-height photo on one side, content on the
@@ -48,7 +41,6 @@ export function PhotoPanel({
   children,
   ...rest
 }) {
-  const reduce = useReducedMotion();
   const left = side === "left";
 
   const props = {
@@ -61,7 +53,7 @@ export function PhotoPanel({
       className,
     ),
     style: { "--media": mediaWidth, "--media-h": `${mobileHeight}px` },
-    ...panelFadeIn(reduce),
+    "data-reveal": "panel",
     ...rest,
   };
 
@@ -87,8 +79,8 @@ export function PhotoPanel({
     </>
   );
 
-  if (as === Link) return <MotionLink {...props}>{content}</MotionLink>;
-  if (as === "a") return <MotionA {...props}>{content}</MotionA>;
-  if (as === "div") return <MotionDiv {...props}>{content}</MotionDiv>;
-  return <MotionSection {...props}>{content}</MotionSection>;
+  if (as === Link) return <Link {...props}>{content}</Link>;
+  if (as === "a") return <a {...props}>{content}</a>;
+  if (as === "div") return <div {...props}>{content}</div>;
+  return <section {...props}>{content}</section>;
 }
