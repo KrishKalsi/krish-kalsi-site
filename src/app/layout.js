@@ -10,6 +10,8 @@ import { seo } from "@/content/seo";
 import { profile } from "@/content/profile";
 import { siteUrl } from "@/lib/siteUrl";
 import { revealScript } from "@/lib/revealScript";
+import { loaderScript } from "@/lib/loaderScript";
+import Loader from "@/components/Loader";
 import "./globals.css";
 
 const geist = Geist({
@@ -48,10 +50,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={geist.variable} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: loaderScript }} />
         <script dangerouslySetInnerHTML={{ __html: revealScript }} />
       </head>
       <body className="bg-bg font-sans text-text antialiased">
         <ThemeProvider>
+          {/* First in the body so no page content can paint before it. */}
+          <Loader />
           <div id="top" className="flex min-h-dvh flex-col">
             <SkipLink />
             <MenuBar />

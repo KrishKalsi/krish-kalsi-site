@@ -106,6 +106,18 @@ html {
   }
 }
 
+/* Loading screen (Loader.jsx). In the initial HTML but hidden unless the
+   <head> script turned it on for this load (lib/loaderScript.js). */
+.loader {
+  display: none;
+}
+html[data-loader="on"] .loader {
+  display: block;
+}
+html[data-loader="on"] {
+  overflow: hidden;
+}
+
 /* Circle cursor (CircleCursor.jsx). Fixed #fff + difference blend so it reads
    on either theme and over photos. Only shown, and the native cursor only
    hidden, once the component has confirmed a fine, hovering pointer. */

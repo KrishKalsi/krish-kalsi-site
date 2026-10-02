@@ -28,3 +28,9 @@ export const footer = {
 };
 
 export const skipLink = "Skip to content";
+
+// Source: docs/content.md → Loading screen. KK© and Portfolio ’26 come from profile.
+export const loader = {
+  label: "Loading:",
+  line: "Krish Kalsi — Data science student",
+};
