@@ -4,6 +4,7 @@ import { useId, useState, useSyncExternalStore } from "react";
 import Panel from "@/components/Panel";
 import PanelTitle from "@/components/PanelTitle";
 import { research, researchLabels as copy } from "@/content/research";
+import { sections } from "@/content/home";
 import { hoverFade } from "@/lib/motion";
 import cx from "@/lib/cx";
 
@@ -18,7 +19,11 @@ function subscribe(onChange) {
 // False on the server and during hydration, so every abstract starts closed;
 // P1 then opens on desktop. The panel is below the fold, so nothing visible shifts.
 function useIsDesktop() {
-  return useSyncExternalStore(subscribe, () => window.matchMedia(DESKTOP).matches, () => false);
+  return useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(DESKTOP).matches,
+    () => false,
+  );
 }
 
 function Paper({ paper, open, onToggle }) {
@@ -34,7 +39,9 @@ function Paper({ paper, open, onToggle }) {
         "lg:grid-cols-[88px_minmax(0,1fr)_160px]",
       )}
     >
-      <span className="text-xs text-dim [grid-area:id] sm:pt-[5px] sm:text-[13px]">[{paper.id}]</span>
+      <span className="text-xs text-dim [grid-area:id] sm:pt-[5px] sm:text-[13px]">
+        [{paper.id}]
+      </span>
       <span className="text-xs text-strong [grid-area:year] sm:justify-self-end sm:pt-1 sm:text-[15px]">
         {paper.year}
       </span>
@@ -96,7 +103,7 @@ export default function ResearchPanel() {
       {/* One child, so Panel's top/bottom gap doesn't split the header from the list. */}
       <div>
         <div className="flex items-baseline justify-between pb-[18px] sm:pb-7">
-          <PanelTitle>Research</PanelTitle>
+          <PanelTitle>{sections.research.title}</PanelTitle>
           <span className="text-xs text-dim sm:text-[13px]">
             {copy.count}
             <span className="hidden sm:inline"> · {copy.kind}</span>

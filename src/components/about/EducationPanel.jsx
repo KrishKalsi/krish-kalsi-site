@@ -1,12 +1,12 @@
 import Panel from "@/components/Panel";
-import { education } from "@/content/about";
+import { education, aboutLabels } from "@/content/about";
 import cx from "@/lib/cx";
 
 export default function EducationPanel() {
   return (
     <Panel>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-[300px_minmax(0,1fr)] sm:gap-x-6">
-        <div className="text-xs uppercase text-dim">Education:</div>
+        <div className="text-xs uppercase text-dim">{aboutLabels.education}</div>
         <div className="flex flex-col">
           {education.map((item, i) => (
             <div

@@ -70,6 +70,28 @@ html {
   scroll-padding-top: 60px;
 }
 
+/* Browser surfaces follow the palette: no default blue for selected text or
+   the tap flash on touch screens. */
+::selection {
+  background-color: var(--strong);
+  color: var(--bg);
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* No one-word last lines in running text; wrapped headings break evenly. */
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
 :focus-visible {
   outline: 1px solid var(--strong);
   outline-offset: 3px;

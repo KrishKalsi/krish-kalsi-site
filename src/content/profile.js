@@ -14,6 +14,8 @@ export const profile = {
   cv: "/cv", // TODO: add public/cv/krish-kalsi-cv.pdf
 };
 
+export const profileLabels = { mail: "Mail:", based: "Based:" };
+
 export const photos = {
   street: {
     src: "/images/street.jpg",

@@ -9,14 +9,23 @@ export const aboutHero = {
 };
 
 export const education = [
-  { degree: "B.Tech, Data Science", institution: "NMIMS MPSTME, Mumbai", period: "2024–28 · CGPA 8.43" },
-  { degree: "ICSE Grade 10", institution: "Avalon Heights International School", period: "2022 · 95.4%" },
+  {
+    degree: "B.Tech, Data Science",
+    institution: "NMIMS MPSTME, Mumbai",
+    period: "2024–28 · CGPA 8.43",
+  },
+  {
+    degree: "ICSE Grade 10",
+    institution: "Avalon Heights International School",
+    period: "2022 · 95.4%",
+  },
 ];
 
 export const coursework = [
   {
     label: "Probability & statistics",
-    items: "Probability and Statistics, Stochastic Processes, Statistical Methods, Statistical Inference",
+    items:
+      "Probability and Statistics, Stochastic Processes, Statistical Methods, Statistical Inference",
     current: false,
   },
   {
@@ -33,7 +42,11 @@ export const coursework = [
 
 export const skills = [
   { label: "Languages", items: "Python, R, C++, Java, SQL, JavaScript" },
-  { label: "Methods", items: "Monte Carlo simulation, econometrics, conformal prediction, portfolio optimisation, VaR" },
+  {
+    label: "Methods",
+    items:
+      "Monte Carlo simulation, econometrics, conformal prediction, portfolio optimisation, VaR",
+  },
   { label: "Tools", items: "NumPy, pandas, scikit-learn, TensorFlow, Streamlit, Git, Tableau" },
 ];
 
@@ -52,4 +65,12 @@ export const cvPanel = {
   meta: "PDF · 2 pages · Sep 2026",
   title: "Curriculum vitae",
   buttonLabel: "Download ↓",
+};
+
+export const aboutLabels = {
+  education: "Education:",
+  coursework: "Coursework:",
+  skills: "Skills:",
+  certifications: "Certifications:",
+  beyondClass: "Beyond class:",
 };

@@ -12,3 +12,12 @@ export const aboutLabels = [
   { label: "Now:", lines: ["Conformal prediction lab", "NHANES survey-design audit"] },
   { label: "Open to:", lines: ["Research internships", "Summer 2027"] },
 ];
+
+// Panel headings and link labels on the home page (wording from the v5 mockups).
+export const sections = {
+  about: { title: "About", count: "(01)" },
+  work: { title: "Work" }, // the count is the number of work items
+  research: { title: "Research" },
+  experience: { title: "Experience", cv: "Download CV ↓" },
+  contact: { title: "Contact", github: "GitHub ↗", linkedin: "LinkedIn ↗", cv: "CV ↓" },
+};

@@ -1,6 +1,10 @@
 import Panel from "@/components/Panel";
 import ThemeRamp from "@/components/ThemeRamp";
-import { profile } from "@/content/profile";
+import { profile, profileLabels } from "@/content/profile";
+
+// 44px hit area around the one-line mail link; the negative margin gives the
+// space back so the label row keeps its spacing.
+const mailLink = "-my-[15px] inline-block py-[15px] text-strong no-underline normal-case";
 
 // The only h1 on the page. Two lines below 640px, one line at and above —
 // matching the mockups' literal markup (mobile hardcodes "Krish<br/>Kalsi"
@@ -40,13 +44,13 @@ export default function CoverPanel() {
           <ThemeRamp className="mt-2" />
         </div>
         <div>
-          <div className="text-dim">Mail:</div>
-          <a href={`mailto:${profile.email}`} className="text-strong no-underline normal-case">
+          <div className="text-dim">{profileLabels.mail}</div>
+          <a href={`mailto:${profile.email}`} className={mailLink}>
             {profile.email}
           </a>
         </div>
         <div>
-          <div className="text-dim">Based:</div>
+          <div className="text-dim">{profileLabels.based}</div>
           <div className="text-strong normal-case">{profile.based}</div>
         </div>
         <div className="text-right text-[30px] leading-none font-light tracking-[-0.03em] text-strong normal-case">
@@ -57,13 +61,13 @@ export default function CoverPanel() {
       {/* <640px: Mail, then Based (v5 mobile mockup). */}
       <div className="flex flex-col gap-3.5 text-[11px] leading-[1.4] uppercase sm:hidden">
         <div>
-          <div className="text-dim">Mail:</div>
-          <a href={`mailto:${profile.email}`} className="text-strong no-underline normal-case">
+          <div className="text-dim">{profileLabels.mail}</div>
+          <a href={`mailto:${profile.email}`} className={mailLink}>
             {profile.email}
           </a>
         </div>
         <div>
-          <div className="text-dim">Based:</div>
+          <div className="text-dim">{profileLabels.based}</div>
           <div className="text-strong normal-case">{profile.based}</div>
         </div>
       </div>

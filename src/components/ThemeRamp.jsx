@@ -1,6 +1,7 @@
 "use client";
 
 import { useThemeSwitch } from "@/lib/useThemeSwitch";
+import { theme } from "@/content/site";
 import cx from "@/lib/cx";
 
 // The 10-swatch grey ramp under "KK©" on the cover — a second theme toggle.
@@ -27,8 +28,8 @@ export default function ThemeRamp({ className }) {
   return (
     <button
       type="button"
-      aria-label="Switch between dark and light mode"
-      title="Switch theme"
+      aria-label={theme.rampLabel}
+      title={theme.rampTitle}
       onClick={(e) =>
         switchTheme(
           document.documentElement.dataset.theme === "light" ? "dark" : "light",

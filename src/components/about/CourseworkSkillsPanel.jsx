@@ -1,6 +1,6 @@
 import Panel from "@/components/Panel";
 import CircleMarker from "@/components/CircleMarker";
-import { coursework, skills } from "@/content/about";
+import { coursework, skills, aboutLabels } from "@/content/about";
 
 function Column({ label, groups }) {
   return (
@@ -27,8 +27,8 @@ export default function CourseworkSkillsPanel() {
   return (
     <Panel>
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-12 lg:gap-x-[72px]">
-        <Column label="Coursework:" groups={coursework} />
-        <Column label="Skills:" groups={skills} />
+        <Column label={aboutLabels.coursework} groups={coursework} />
+        <Column label={aboutLabels.skills} groups={skills} />
       </div>
     </Panel>
   );

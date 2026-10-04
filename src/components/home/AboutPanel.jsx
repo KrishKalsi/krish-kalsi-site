@@ -1,7 +1,7 @@
 import { PhotoPanel } from "@/components/Panel";
 import PanelTitle from "@/components/PanelTitle";
 import { photos } from "@/content/profile";
-import { aboutStatement, aboutLabels } from "@/content/home";
+import { aboutStatement, aboutLabels, sections } from "@/content/home";
 
 export default function AboutPanel() {
   return (
@@ -13,8 +13,8 @@ export default function AboutPanel() {
       className="lg:min-h-[680px]"
     >
       <div className="flex items-baseline justify-between">
-        <PanelTitle>About</PanelTitle>
-        <span className="text-xs text-dim">(01)</span>
+        <PanelTitle>{sections.about.title}</PanelTitle>
+        <span className="text-xs text-dim">{sections.about.count}</span>
       </div>
 
       <div>

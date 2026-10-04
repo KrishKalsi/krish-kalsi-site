@@ -26,7 +26,7 @@ export default function MenuBar() {
       onKeyDown={(e) => e.key === "Escape" && close()}
     >
       <div className="flex h-11 items-center justify-between px-4 sm:px-8 lg:px-16">
-        <nav aria-label="Main" className="flex items-center gap-7">
+        <nav aria-label={menu.label} className="flex items-center gap-7">
           <Link
             href={menu.home.href}
             className={cx(linkBase, "font-medium text-strong")}

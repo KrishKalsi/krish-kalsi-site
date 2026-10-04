@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Panel from "@/components/Panel";
 import { profile } from "@/content/profile";
 import { pageSeo } from "@/content/seo";
+import { cvPlaceholder } from "@/content/site";
 import { pageMetadata } from "@/lib/pageMetadata";
 
 const CV_RELATIVE_PATH = "cv/krish-kalsi-cv.pdf";
@@ -20,14 +21,12 @@ export default function CvPage() {
   return (
     <Panel as="div" className="min-h-[320px]">
       <h1 className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-strong">
-        CV
+        {cvPlaceholder.title}
       </h1>
       <div>
-        <p className="text-lg leading-[1.38] text-strong sm:text-[25px]">
-          The CV isn’t uploaded yet.
-        </p>
+        <p className="text-lg leading-[1.38] text-strong sm:text-[25px]">{cvPlaceholder.line}</p>
         <p className="mt-4 text-sm text-text sm:text-[15px]">
-          Reach out directly at{" "}
+          {cvPlaceholder.contact}{" "}
           <a
             href={`mailto:${profile.email}`}
             className="text-strong underline decoration-1 underline-offset-4"

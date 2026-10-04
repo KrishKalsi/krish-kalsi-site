@@ -5,6 +5,7 @@ import { titleTransitionName } from "@/lib/motion";
 import PanelTitle from "@/components/PanelTitle";
 import CircleMarker from "@/components/CircleMarker";
 import { work } from "@/content/work";
+import { sections } from "@/content/home";
 import { profile } from "@/content/profile";
 
 const itemClass = "group flex flex-col gap-1 text-strong no-underline";
@@ -60,9 +61,9 @@ export default function WorkPanel() {
   return (
     <Panel id="work" className="lg:min-h-[640px]">
       <div className="flex items-baseline justify-between">
-        <PanelTitle>Work</PanelTitle>
+        <PanelTitle>{sections.work.title}</PanelTitle>
         <span className="text-[clamp(44px,5vw,72px)] leading-none font-light tracking-[-0.045em] text-dim">
-          06
+          {String(work.length).padStart(2, "0")}
         </span>
       </div>
       <div className="grid grid-cols-1 gap-[26px] sm:grid-cols-2 sm:gap-x-6 sm:gap-y-13 lg:grid-cols-3">

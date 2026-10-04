@@ -1,5 +1,5 @@
 import Panel from "@/components/Panel";
-import { certifications, beyondClass } from "@/content/about";
+import { certifications, beyondClass, aboutLabels } from "@/content/about";
 
 function Column({ label, items }) {
   return (
@@ -18,8 +18,8 @@ export default function CertificationsPanel() {
   return (
     <Panel>
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-12 lg:gap-x-[72px]">
-        <Column label="Certifications:" items={certifications} />
-        <Column label="Beyond class:" items={beyondClass} />
+        <Column label={aboutLabels.certifications} items={certifications} />
+        <Column label={aboutLabels.beyondClass} items={beyondClass} />
       </div>
     </Panel>
   );
