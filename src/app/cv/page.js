@@ -9,12 +9,18 @@ import { pageMetadata } from "@/lib/pageMetadata";
 
 const CV_RELATIVE_PATH = "cv/krish-kalsi-cv.pdf";
 
-export const metadata = pageMetadata({ ...pageSeo.cv, path: "/cv", coverImage: true });
+const cvExists = () => fs.existsSync(path.join(process.cwd(), "public", CV_RELATIVE_PATH));
+
+// Until the PDF exists this page is a placeholder, so keep it out of search results.
+export function generateMetadata() {
+  return {
+    ...pageMetadata({ ...pageSeo.cv, path: "/cv", coverImage: true }),
+    ...(!cvExists() && { robots: { index: false, follow: true } }),
+  };
+}
 
 export default function CvPage() {
-  const cvExists = fs.existsSync(path.join(process.cwd(), "public", CV_RELATIVE_PATH));
-
-  if (cvExists) {
+  if (cvExists()) {
     redirect(`/${CV_RELATIVE_PATH}`);
   }
 
