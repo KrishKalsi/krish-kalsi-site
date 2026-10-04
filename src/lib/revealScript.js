@@ -8,8 +8,9 @@
 // The hiding and the animation live in globals.css behind html[data-reveal-ready]
 // and prefers-reduced-motion: no-preference, so without JS, without
 // IntersectionObserver, or under reduced motion, everything is simply visible.
-// The script only ever adds data-revealed, an attribute React never renders,
-// so hydration is unaffected.
+// The script adds data-revealed to elements React rendered, before React
+// hydrates. React leaves the attribute alone, but in development it reports
+// the mismatch, so those elements carry suppressHydrationWarning.
 function reveal() {
   if (!("IntersectionObserver" in window)) return;
   var html = document.documentElement;

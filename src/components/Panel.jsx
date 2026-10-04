@@ -15,9 +15,12 @@ const body =
 // so which one renders is chosen by branching, never by assigning a variable.
 //
 // data-reveal="panel" opts into the once-on-scroll fade (see revealScript.js).
+// That script adds data-revealed before React hydrates, so the attribute
+// mismatch on the panel element itself is expected: `reveal` tells React so.
+const reveal = { "data-reveal": "panel", suppressHydrationWarning: true };
 
 export default function Panel({ as = "section", className, children, ...rest }) {
-  const props = { className: cx(frame, body, className), "data-reveal": "panel", ...rest };
+  const props = { className: cx(frame, body, className), ...reveal, ...rest };
 
   if (as === Link) return <Link {...props}>{children}</Link>;
   if (as === "a") return <a {...props}>{children}</a>;
@@ -53,7 +56,7 @@ export function PhotoPanel({
       className,
     ),
     style: { "--media": mediaWidth, "--media-h": `${mobileHeight}px` },
-    "data-reveal": "panel",
+    ...reveal,
     ...rest,
   };
 

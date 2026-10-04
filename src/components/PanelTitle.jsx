@@ -16,7 +16,12 @@ export default function PanelTitle({ as: Tag = "h2", className, children }) {
           clipped by the mask, so it would never report as visible. Padding
           keeps descenders (the p in Experience) inside the mask; the negative
           margin gives the space back so layout is unchanged. */}
-      <span data-reveal="title" className="-mb-[0.18em] block overflow-hidden pb-[0.18em]">
+      <span
+        data-reveal="title"
+        // The reveal script adds data-revealed before React hydrates.
+        suppressHydrationWarning
+        className="-mb-[0.18em] block overflow-hidden pb-[0.18em]"
+      >
         <span className="block">{children}</span>
       </span>
     </Tag>
