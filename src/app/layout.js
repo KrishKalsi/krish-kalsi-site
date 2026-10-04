@@ -39,12 +39,9 @@ export const metadata = {
   twitter: { card: "summary_large_image", title: seo.title, description: seo.description },
 };
 
-export const viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-    { media: "(prefers-color-scheme: light)", color: "#e4e4e0" },
-  ],
-};
+// The default (dark) page background; ThemeProvider keeps it in step with the
+// visitor's chosen theme, which is not the OS colour scheme.
+export const viewport = { themeColor: "#0a0a0a" };
 
 export default function RootLayout({ children }) {
   return (
