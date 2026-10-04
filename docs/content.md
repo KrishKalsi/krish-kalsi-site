@@ -73,7 +73,7 @@ No figure, caption or Redraw button (the random walk was removed).
 - Top-left: KK©
 - Top-right: Portfolio ’26
 - Counter: 000 → 100 (three digits, zero-padded)
-- Bottom-right label: "Loading:" then "Krish Kalsi — Data science student"
+- Bottom-right label, three lines: "Loading:" / "One random walk, σ = 0.25" / "Step n / 140" (n counts 0 → 140)
 
 ## Experience
 

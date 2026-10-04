@@ -89,6 +89,14 @@ Show me your plan first. Afterwards run lint and build, check 1440, 768 and 390p
 
 Then test it: open the site in a new tab (loader plays), refresh (loader should not play), close the tab and open a new one (plays again), and click during the loader (it should skip).
 
+## Step 7.6 — Loader: replace the ring with one path (Sonnet is fine)
+
+```
+Change the loading screen. Re-read the "A — Loading screen" part of CLAUDE.md (it changed) and docs/design/v5-loader.html. Remove the centre ring completely (track, arc and the filling dot). Instead draw one random walk from left to right across the screen in step with the counter, with a small dot at its tip and the faint dotted baseline, and make the circular reveal open from the tip of the path instead of the screen centre. Update the bottom-right label to the three lines in docs/content.md. Keep every other rule as it is: first load of a session only, skippable, not shown under reduced motion, never delays content. Do not add the random walk back to the cover. One commit. Then run lint and build and check 1440, 768 and 390px in both themes.
+```
+
+Then test: open the site in a new tab and watch the path draw and the page open from its tip; click during it to skip; refresh to confirm it does not replay.
+
 ## Step 8 — Final review (Opus)
 
 ```

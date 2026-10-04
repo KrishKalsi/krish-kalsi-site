@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Loading screen — counter and ring</title>
+<title>Loading screen — one path</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -20,14 +20,15 @@ body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoot
 <div style="position: absolute; left: 64px; top: 36px; font-size: 13px; font-weight: 600; letter-spacing: -0.02em; color: #E9E9E5">KK©</div>
 <div style="position: absolute; right: 64px; top: 36px; font-size: 13px; color: #8A8A86">Portfolio ’26</div>
 <svg width="1440" height="900" aria-hidden="true" style="position: absolute; left: 0; top: 0">
-<circle cx="720" cy="450" r="22" style="fill: none; stroke: #383836; stroke-width: 1px"></circle>
-<path d="{{arc}}" style="fill: none; stroke: #E9E9E5; stroke-width: 1.5px"></path>
-<circle cx="720" cy="450" r="{{dot}}" style="fill: #E9E9E5"></circle>
+<path d="M64 430H1376" style="stroke: #383836; stroke-width: 1px; stroke-dasharray: 2 7; fill: none"></path>
+<path d="{{d}}" style="stroke: #E9E9E5; stroke-width: 1.4px; fill: none; stroke-linejoin: round"></path>
+<circle cx="{{tx}}" cy="{{ty}}" r="4" style="fill: #E9E9E5"></circle>
 </svg>
 <div style="position: absolute; left: 56px; bottom: 36px; font-size: 212px; line-height: 0.84; font-weight: 300; letter-spacing: -0.055em; color: #E9E9E5; font-variant-numeric: tabular-nums">{{count}}</div>
 <div style="position: absolute; right: 64px; bottom: 44px; text-align: right; font-size: 12px; line-height: 1.5; text-transform: uppercase">
 <div style="color: #8A8A86">Loading:</div>
-<div style="color: #E9E9E5">Krish Kalsi — Data science student</div>
+<div style="color: #E9E9E5">One random walk, σ = 0.25</div>
+<div style="color: #8A8A86; font-variant-numeric: tabular-nums">Step {{step}} / 140</div>
 </div>
 </div>
 
@@ -57,13 +58,34 @@ body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoot
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
+  rng(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  pts(seed) {
+    if (this._ps === seed) return this._p;
+    const r = this.rng(seed), n = 140, out = [{ x: 64, y: 430 }];
+    let ls = 0;
+    for (let i = 1; i <= n; i++) {
+      let u = 0; while (u === 0) u = r(); const v = r();
+      ls += 0.25 * Math.sqrt(1 / n) * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+      out.push({ x: 64 + i / n * 1312, y: Math.min(Math.max(430 - ls * 560, 150), 640) });
+    }
+    this._ps = seed; this._p = out;
+    return out;
+  }
   play() {
     cancelAnimationFrame(this._raf);
-    const t0 = performance.now();
+    const seed = Math.floor(Math.random() * 1e9), t0 = performance.now();
     const loop = () => {
       const t = performance.now() - t0;
-      if (t >= 2800) { this.setState({ phase: 'done', t: 2800 }); return; }
-      this.setState({ phase: 'run', t: t });
+      if (t >= 3200) { this.setState({ phase: 'done', t: 3200, seed: seed }); return; }
+      this.setState({ phase: 'run', t: t, seed: seed });
       this._raf = requestAnimationFrame(loop);
     };
     loop();
@@ -73,22 +95,25 @@ class Component extends DCLogic {
     const st = this.state || {};
     const phase = st.phase || 'idle';
     const ease = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    let p = 0.62, fill = 0, rv = 0;
+    const pts = this.pts(st.seed || 20261002);
+    let p = 0.62, rv = 0;
     if (phase !== 'idle') {
-      p = ease(Math.min(st.t / 1500, 1));
-      fill = st.t < 1500 ? 0 : Math.min((st.t - 1500) / 250, 1);
-      rv = st.t < 1850 ? 0 : ease(Math.min((st.t - 1850) / 950, 1));
+      p = ease(Math.min(st.t / 1900, 1));
+      rv = st.t < 2150 ? 0 : ease(Math.min((st.t - 2150) / 950, 1));
     }
     if (phase === 'done') rv = 1;
-    const f = v => v.toFixed(2);
-    const cx = 720, cy = 450, r = 22, a = Math.min(p, 0.9999) * 2 * Math.PI;
-    const ex = cx + r * Math.sin(a), ey = cy - r * Math.cos(a);
-    const arc = 'M' + cx + ' ' + (cy - r) + 'A' + r + ' ' + r + ' 0 ' + (p > 0.5 ? 1 : 0) + ' 1 ' + f(ex) + ' ' + f(ey);
-    const R = Math.hypot(720, 450) + 4;
+    const n = pts.length - 1, fp = p * n, k = Math.min(Math.floor(fp), n - 1), fr = fp - k;
+    const f = v => v.toFixed(1);
+    let d = '';
+    for (let i = 0; i <= k; i++) d += (i ? 'L' : 'M') + f(pts[i].x) + ' ' + f(pts[i].y);
+    const tx = pts[k].x + (pts[k + 1].x - pts[k].x) * fr, ty = pts[k].y + (pts[k + 1].y - pts[k].y) * fr;
+    d += 'L' + f(tx) + ' ' + f(ty);
+    const R = Math.hypot(Math.max(tx, 1440 - tx), Math.max(ty, 900 - ty)) + 4;
     return {
-      arc: arc, dot: f(3 + fill * 19),
-      clip: 'circle(' + f(rv * R) + 'px at 720px 450px)',
+      d: d, tx: f(tx), ty: f(ty),
+      clip: 'circle(' + f(rv * R) + 'px at ' + f(tx) + 'px ' + f(ty) + 'px)',
       count: String(Math.round(p * 100)).padStart(3, '0'),
+      step: Math.round(p * 140),
       showPlay: phase === 'idle', showReplay: phase === 'done',
       play: () => this.play()
     };

@@ -29,10 +29,11 @@ body{margin:0;font-family:'Geist','Helvetica Neue',sans-serif;-webkit-font-smoot
 <section style="box-sizing: border-box; padding: 28px 36px 32px; border: 1px solid #383836; background: #111111; display: grid; grid-template-columns: 220px repeat(2, minmax(0, 1fr)); gap: 32px 48px">
 <div style="grid-row: span 2; font-size: 12px; text-transform: uppercase; color: #8A8A86">Character:</div>
 <div>
-<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8A8A86"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid #E9E9E5; background: #E9E9E5"></span>A — Loading screen (replaces the random walk, which is removed)</div>
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8A8A86"><span style="width: 15px; height: 15px; border-radius: 50%; border: 1px solid #E9E9E5; background: #E9E9E5"></span>A — Loading screen: one path (the cover itself has no walk)</div>
 <ul style="margin: 14px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.5">
-<li>Full-screen, page background. Counter 000 → 100 bottom-left in the wordmark style; KK© top-left; “Loading:” label bottom-right.</li>
-<li>A 44 px ring at the centre draws clockwise with the count (1.5 s), fills solid (0.25 s), then the page opens as a circle from it (0.95 s). About 2.8 s in total.</li>
+<li>Full-screen, page background. Counter 000 → 100 bottom-left in the wordmark style; KK© top-left; “Loading: one random walk, σ = 0.25” and the step count bottom-right.</li>
+<li>One random walk draws left to right across the screen in step with the count (1.9 s), with a small dot at its tip and a faint dotted baseline. A new path each time.</li>
+<li>At 100 the page opens as a circle from the tip of the path (0.95 s). About 3.1 s in total. No ring at the centre.</li>
 <li>First visit of a session only. Any click, key or scroll skips it.</li>
 <li>Skipped entirely under reduced motion. The page loads underneath, so content is never delayed.</li>
 <li>Follows the visitor’s theme. The cover itself has no figure or animation.</li>

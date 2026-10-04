@@ -30,7 +30,9 @@ export const footer = {
 export const skipLink = "Skip to content";
 
 // Source: docs/content.md → Loading screen. KK© and Portfolio ’26 come from profile.
+// The third line reads "Step n / 140"; n and the total come from Loader.jsx.
 export const loader = {
   label: "Loading:",
-  line: "Krish Kalsi — Data science student",
+  line: "One random walk, σ = 0.25",
+  step: "Step",
 };
