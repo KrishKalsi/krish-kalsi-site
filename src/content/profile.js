@@ -1,5 +1,4 @@
 // Source: docs/content.md → Profile, Image alt text.
-// TODO entries stay null until Krish provides them.
 
 export const profile = {
   name: "Krish Kalsi",

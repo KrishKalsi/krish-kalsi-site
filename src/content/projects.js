@@ -11,7 +11,7 @@ export const projects = {
       { label: "Status:", value: "In progress" },
       { label: "Stack:", value: "Python · NumPy · scikit-learn" },
     ],
-    repo: null, // TODO: project repo URL — falls back to profile.github until provided.
+    repo: null, // No project repo yet: the button links to profile.github.
     viewCode: "View code ↗",
     abstract:
       "Conformal prediction wraps any model in intervals that contain the truth with probability at least 1 − α. I implemented split conformal and CQR from scratch, then tested the guarantee over repeated calibration splits.",

@@ -1,6 +1,6 @@
 # Site content — single source of truth
 
-Everything the site says. Use this wording exactly. Items marked **TODO** are missing and must stay as visible placeholders until Krish fills them in.
+Everything the site says. Use this wording exactly. Nothing visitors see may be a placeholder: where a project has no link of its own yet, it links to the GitHub profile.
 
 ## Profile
 
@@ -31,11 +31,11 @@ Statement:
 | No. | Area | Title | Detail | Link |
 |---|---|---|---|---|
 | 01 | Uncertainty | Conformal prediction lab | 90% coverage met on 5 datasets | `/work/conformal-prediction` (featured: filled circle) |
-| 02 | Stochastic processes | Markov model of T20 cricket | MAE ≈ 21 runs over 217 matches | GitHub TODO |
-| 03 | Markets · Live | ETF overlap detector | Look-through across 3,000+ securities | Live demo TODO · GitHub TODO |
-| 04 | Risk | Portfolio analytics | Efficient frontier · Monte Carlo VaR | GitHub TODO |
-| 05 | Simulation | Poker equity engine | 169 hands ranked from 500K+ showdowns | GitHub TODO |
-| 06 | Econometrics | Electricity demand | ≈ 5% CV error on 2,900 days | Live demo TODO · GitHub TODO |
+| 02 | Stochastic processes | Markov model of T20 cricket | MAE ≈ 21 runs over 217 matches | GitHub profile |
+| 03 | Markets · Live | ETF overlap detector | Look-through across 3,000+ securities | GitHub profile |
+| 04 | Risk | Portfolio analytics | Efficient frontier · Monte Carlo VaR | GitHub profile |
+| 05 | Simulation | Poker equity engine | 169 hands ranked from 500K+ showdowns | GitHub profile |
+| 06 | Econometrics | Electricity demand | ≈ 5% CV error on 2,900 days | GitHub profile |
 
 Longer background for each (for future project pages — do not put on the home page):
 - **01** Split conformal prediction and Conformalized Quantile Regression written from scratch, with tests that check the finite-sample coverage guarantee by averaging over repeated calibration splits. Both methods land on the 90% target across five benchmark datasets. In progress.
@@ -96,7 +96,7 @@ No figure, caption or Redraw button (the random walk was removed).
 
 - Breadcrumb: ← Work / 01 — right: (01) Uncertainty
 - Title: Conformal / prediction
-- Year: 2026 · Status: In progress · Stack: Python · NumPy · scikit-learn · Button: View code ↗ (GitHub TODO)
+- Year: 2026 · Status: In progress · Stack: Python · NumPy · scikit-learn · Button: View code ↗ (GitHub profile)
 - Abstract: Conformal prediction wraps any model in intervals that contain the truth with probability at least 1 − α. I implemented split conformal and CQR from scratch, then tested the guarantee over repeated calibration splits.
 - Result: **90%** — target coverage met on five benchmark datasets
 - Fig. 1 — Intervals on heteroscedastic data (interactive; see CLAUDE.md). Caption: "{Method} on synthetic data where noise grows with x. Filled dots are covered; open circles fall outside. Target: {1−α}."
