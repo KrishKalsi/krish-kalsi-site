@@ -11,7 +11,6 @@ export const profile = {
   coverCorner: "Portfolio ’26",
   github: "https://github.com/KrishKalsi",
   linkedin: "https://www.linkedin.com/in/krish-kalsi-b33404248/",
-  cv: "/cv", // TODO: add public/cv/krish-kalsi-cv.pdf
 };
 
 export const profileLabels = { mail: "Mail:", based: "Based:" };

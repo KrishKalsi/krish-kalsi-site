@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PhotoPanel } from "@/components/Panel";
 import PanelTitle from "@/components/PanelTitle";
 import { profile, profileLabels, photos } from "@/content/profile";
@@ -29,16 +28,13 @@ export default function ContactPanel() {
         >
           {profile.email}
         </a>
-        <div className="mt-5 grid grid-cols-2 border-t border-line text-xs uppercase sm:mt-12 sm:grid-cols-3">
+        <div className="mt-5 grid grid-cols-2 border-t border-line text-xs uppercase sm:mt-12">
           <a href={profile.github} target="_blank" rel="noopener noreferrer" className={rowLink}>
             {copy.github}
           </a>
           <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className={rowLink}>
             {copy.linkedin}
           </a>
-          <Link href={profile.cv} className={`hidden sm:flex ${rowLink}`}>
-            {copy.cv}
-          </Link>
         </div>
       </div>
     </PhotoPanel>

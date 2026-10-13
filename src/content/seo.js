@@ -11,7 +11,6 @@ export const seo = {
 
 export const pageSeo = {
   about: { title: aboutHero.title, description: aboutHero.statement },
-  cv: { title: "CV", description: "Curriculum vitae of Krish Kalsi." },
 };
 
 export const ogAlt = {

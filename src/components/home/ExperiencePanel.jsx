@@ -1,22 +1,12 @@
-import Link from "next/link";
 import Panel from "@/components/Panel";
 import PanelTitle from "@/components/PanelTitle";
 import { experience } from "@/content/experience";
-import { profile } from "@/content/profile";
 import { sections } from "@/content/home";
 
 export default function ExperiencePanel() {
   return (
     <Panel className="lg:min-h-[400px]">
-      <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <PanelTitle>{sections.experience.title}</PanelTitle>
-        <Link
-          href={profile.cv}
-          className="flex min-h-11 items-center border border-strong px-[18px] text-xs text-strong no-underline uppercase"
-        >
-          {sections.experience.cv}
-        </Link>
-      </div>
+      <PanelTitle>{sections.experience.title}</PanelTitle>
       <div className="grid grid-cols-1 gap-[18px] sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 lg:grid-cols-3">
         {experience.map((item) => (
           <div key={item.org} className="flex flex-col gap-1">

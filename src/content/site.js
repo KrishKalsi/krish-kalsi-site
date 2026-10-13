@@ -6,7 +6,6 @@ export const menu = {
     { label: "Work", href: "/#work", section: "/work" },
     { label: "Research", href: "/#research" },
     { label: "About", href: "/about", section: "/about" },
-    { label: "CV", href: "/cv" },
     { label: "Contact", href: "/#contact" },
   ],
   label: "Main",
@@ -38,13 +37,6 @@ export const loader = {
   label: "Loading:",
   line: "One random walk, σ = 0.25",
   step: "Step",
-};
-
-// /cv while the PDF is still TODO (docs/content.md → Profile).
-export const cvPlaceholder = {
-  title: "CV",
-  line: "The CV isn’t uploaded yet.",
-  contact: "Reach out directly at",
 };
 
 export const notFound = {

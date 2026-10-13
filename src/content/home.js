@@ -18,6 +18,6 @@ export const sections = {
   about: { title: "About", count: "(01)" },
   work: { title: "Work" }, // the count is the number of work items
   research: { title: "Research" },
-  experience: { title: "Experience", cv: "Download CV ↓" },
-  contact: { title: "Contact", github: "GitHub ↗", linkedin: "LinkedIn ↗", cv: "CV ↓" },
+  experience: { title: "Experience" },
+  contact: { title: "Contact", github: "GitHub ↗", linkedin: "LinkedIn ↗" },
 };

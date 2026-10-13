@@ -13,7 +13,6 @@ Everything the site says. Use this wording exactly. Items marked **TODO** are mi
 - Cover corner: Portfolio ’26
 - GitHub: https://github.com/KrishKalsi
 - LinkedIn: https://www.linkedin.com/in/krish-kalsi-b33404248/
-- CV PDF: **TODO** — place at `public/cv/krish-kalsi-cv.pdf`
 
 ## Home — About panel (01)
 
@@ -83,13 +82,11 @@ No figure, caption or Redraw button (the random walk was removed).
 | 2025–26 | Social Conclave, MPSTME | Research & development executive |
 | 2023 | Lydian Global | Research intern |
 
-Button: Download CV ↓
-
 ## Contact
 
 - Title: Contact
 - Label: Mail: → krishkalsi9@gmail.com (large)
-- Links: GitHub ↗ · LinkedIn ↗ · CV ↓
+- Links: GitHub ↗ · LinkedIn ↗
 
 ## Footer
 
@@ -123,7 +120,6 @@ Button: Download CV ↓
   - Tools: NumPy, pandas, scikit-learn, TensorFlow, Streamlit, Git, Tableau
 - Certifications: Machine Learning Specialization — DeepLearning.AI / Quantitative Research Simulation — JPMorgan Chase / Investment Banking Simulation — JPMorgan Chase
 - Beyond class: R&D Executive, Social Conclave — gig-worker welfare / Volunteer, Dynamic Welfare Group — food & sanitation drives
-- CV panel: PDF · 2 pages · Sep 2026 — Curriculum vitae — Download ↓
 
 ## Image alt text
 

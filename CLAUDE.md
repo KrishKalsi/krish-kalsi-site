@@ -51,7 +51,7 @@ Use `clamp()` so large type scales smoothly between breakpoints.
 - Page padding 64px desktop, 16px mobile. Panels stacked with a 40px gap (16px mobile).
 - **Panel** = 1px `--line` border, `--panel` background, padding 28px 36px 32px, **no border radius, no shadow**. Content is pinned to the top (title) and bottom (details) of each panel with lots of empty space between.
 - Photo panels split the panel: image on one side, separated by a 1px `--line` rule, full panel height, `object-fit: cover`.
-- **Menu bar**: 44px, sticky at the top, 1px bottom rule. Left: `/KrishKalsi` then Work · Research · About · CV · Contact. Right: Dark / Light toggle (circle indicator, filled = active) and "Mumbai, IST".
+- **Menu bar**: 44px, sticky at the top, 1px bottom rule. Left: `/KrishKalsi` then Work · Research · About · Contact. Right: Dark / Light toggle (circle indicator, filled = active) and "Mumbai, IST".
 - **Circle marker**: 15px circle, 1px border, before every list item. Filled on hover and for the current or featured item.
 - Breakpoints: desktop ≥ 1024px, tablet 640–1023px (2-column grids), mobile < 640px (single column, photo on top of its panel, as in `Mobile` mockup).
 
@@ -61,8 +61,7 @@ Use `clamp()` so large type scales smoothly between breakpoints.
 |---|---|---|
 | `/` | Cover (plain, no figure) → About → Work (6) → Research (3, formal list, no photo) → Experience (3) → Contact → footer | `docs/design/v5-home-desktop.html`, `v5-home-mobile.html` |
 | `/work/[slug]` | Project page. Build `conformal-prediction` fully first; other slugs use the same template once Krish writes them. Until then, their Work tiles link to GitHub. | `v3-project.html` |
-| `/about` | About hero with photo, Education, Coursework + Skills, Certifications + Beyond class, CV download | `v3-about.html` |
-| `/cv` | Redirects to `/cv/krish-kalsi-cv.pdf` in `public/` | — |
+| `/about` | About hero with photo, Education, Coursework + Skills, Certifications + Beyond class | `v3-about.html` |
 
 Interactions:
 - **Theme toggle** in the menu bar on every page, plus the grey ramp under "KK©" on the cover toggles too. Circle reveal (see Motion).

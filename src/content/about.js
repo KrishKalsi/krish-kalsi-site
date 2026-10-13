@@ -61,12 +61,6 @@ export const beyondClass = [
   "Volunteer, Dynamic Welfare Group — food & sanitation drives",
 ];
 
-export const cvPanel = {
-  meta: "PDF · 2 pages · Sep 2026",
-  title: "Curriculum vitae",
-  buttonLabel: "Download ↓",
-};
-
 export const aboutLabels = {
   education: "Education:",
   coursework: "Coursework:",
