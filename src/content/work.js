@@ -1,7 +1,8 @@
 // Source: docs/content.md → Work (06).
 // Item 01 has its own project page and is the one featured (filled) marker.
 // Items 02–06 don't have a page yet, so per CLAUDE.md their tiles link to
-// GitHub — profile.github, imported where this is used.
+// GitHub: `repo` where the project has one, otherwise profile.github (imported
+// where this is used). `live` adds a second link to the running app.
 
 export const work = [
   {
@@ -25,6 +26,7 @@ export const work = [
     area: "Markets · Live",
     title: "ETF overlap detector",
     detail: "Look-through across 3,000+ securities",
+    repo: "https://github.com/KrishKalsi/etf-overlap-detector",
     external: true,
   },
   {
@@ -39,6 +41,7 @@ export const work = [
     area: "Simulation",
     title: "Poker equity engine",
     detail: "169 hands ranked from 500K+ showdowns",
+    repo: "https://github.com/KrishKalsi/Poker_Analytics_Engine",
     external: true,
   },
   {
@@ -46,6 +49,8 @@ export const work = [
     area: "Econometrics",
     title: "Electricity demand",
     detail: "≈ 5% CV error on 2,900 days",
+    repo: "https://github.com/KrishKalsi/Electricity_demand",
+    live: "https://electricitydemand-gdbe2mg2tiywqmbknit5uj.streamlit.app/",
     external: true,
   },
 ];

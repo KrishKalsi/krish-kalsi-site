@@ -1,12 +1,13 @@
 import { ViewTransition } from "react";
 import Link from "next/link";
 import Panel from "@/components/Panel";
-import { titleTransitionName } from "@/lib/motion";
+import { hoverFade, titleTransitionName } from "@/lib/motion";
 import PanelTitle from "@/components/PanelTitle";
 import CircleMarker from "@/components/CircleMarker";
 import { work } from "@/content/work";
 import { sections } from "@/content/home";
 import { profile } from "@/content/profile";
+import cx from "@/lib/cx";
 
 const itemClass = "group flex flex-col gap-1 text-strong no-underline";
 
@@ -37,9 +38,9 @@ function WorkItem({ item }) {
   );
 
   if (item.external) {
-    return (
+    const tile = (
       <a
-        href={profile.github}
+        href={item.repo ?? profile.github}
         target="_blank"
         rel="noopener noreferrer"
         data-cursor="work"
@@ -47,6 +48,25 @@ function WorkItem({ item }) {
       >
         {label}
       </a>
+    );
+    if (!item.live) return tile;
+
+    // A link can't sit inside the tile's link, so the live app goes under it.
+    return (
+      <div className="flex flex-col">
+        {tile}
+        <a
+          href={item.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cx(
+            "flex min-h-11 items-center self-start text-xs text-strong uppercase",
+            hoverFade,
+          )}
+        >
+          {sections.work.live}
+        </a>
+      </div>
     );
   }
 
@@ -66,7 +86,7 @@ export default function WorkPanel() {
           {String(work.length).padStart(2, "0")}
         </span>
       </div>
-      <div className="grid grid-cols-1 gap-[26px] sm:grid-cols-2 sm:gap-x-6 sm:gap-y-13 lg:grid-cols-3">
+      <div className="grid grid-cols-1 items-start gap-[26px] sm:grid-cols-2 sm:gap-x-6 sm:gap-y-13 lg:grid-cols-3">
         {work.map((item) => (
           <WorkItem key={item.no} item={item} />
         ))}

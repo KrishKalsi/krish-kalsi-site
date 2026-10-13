@@ -26,7 +26,8 @@ npm run build    # production build, as Vercel runs it
 
 ## Still to add
 
-- Repository links for projects 01–06 and live-demo links for 03 and 06 (`src/content/work.js`, `src/content/projects.js`). Until then the tiles link to the GitHub profile.
+- Repository links for projects 01, 02 and 04 (`src/content/work.js`, `src/content/projects.js`). Until then they link to the GitHub profile.
+- Live-app link for 03 (`live` in `src/content/work.js`), once the Streamlit app loads without an error.
 
 ## Deploying (Vercel)
 

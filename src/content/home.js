@@ -16,7 +16,7 @@ export const aboutLabels = [
 // Panel headings and link labels on the home page (wording from the v5 mockups).
 export const sections = {
   about: { title: "About", count: "(01)" },
-  work: { title: "Work" }, // the count is the number of work items
+  work: { title: "Work", live: "Live app ↗" }, // the count is the number of work items
   research: { title: "Research" },
   experience: { title: "Experience" },
   contact: { title: "Contact", github: "GitHub ↗", linkedin: "LinkedIn ↗" },

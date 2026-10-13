@@ -8,7 +8,7 @@ import cx from "@/lib/cx";
 // Projects without their own page yet link to GitHub, as their Work tiles do.
 export default function NextProjectPanel({ next }) {
   const linkProps = next.external
-    ? { as: "a", href: profile.github, target: "_blank", rel: "noopener noreferrer" }
+    ? { as: "a", href: next.repo ?? profile.github, target: "_blank", rel: "noopener noreferrer" }
     : { as: Link, href: next.href };
 
   return (

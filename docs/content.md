@@ -32,10 +32,10 @@ Statement:
 |---|---|---|---|---|
 | 01 | Uncertainty | Conformal prediction lab | 90% coverage met on 5 datasets | `/work/conformal-prediction` (featured: filled circle) |
 | 02 | Stochastic processes | Markov model of T20 cricket | MAE ≈ 21 runs over 217 matches | GitHub profile |
-| 03 | Markets · Live | ETF overlap detector | Look-through across 3,000+ securities | GitHub profile |
+| 03 | Markets · Live | ETF overlap detector | Look-through across 3,000+ securities | Code: https://github.com/KrishKalsi/etf-overlap-detector |
 | 04 | Risk | Portfolio analytics | Efficient frontier · Monte Carlo VaR | GitHub profile |
-| 05 | Simulation | Poker equity engine | 169 hands ranked from 500K+ showdowns | GitHub profile |
-| 06 | Econometrics | Electricity demand | ≈ 5% CV error on 2,900 days | GitHub profile |
+| 05 | Simulation | Poker equity engine | 169 hands ranked from 500K+ showdowns | Code: https://github.com/KrishKalsi/Poker_Analytics_Engine |
+| 06 | Econometrics | Electricity demand | ≈ 5% CV error on 2,900 days | Code: https://github.com/KrishKalsi/Electricity_demand · Live app ↗: https://electricitydemand-gdbe2mg2tiywqmbknit5uj.streamlit.app/ |
 
 Longer background for each (for future project pages — do not put on the home page):
 - **01** Split conformal prediction and Conformalized Quantile Regression written from scratch, with tests that check the finite-sample coverage guarantee by averaging over repeated calibration splits. Both methods land on the 90% target across five benchmark datasets. In progress.
