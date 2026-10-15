@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# personal build notes (kept locally, not published)
+/docs/PROMPTS.md
