@@ -101,7 +101,7 @@ Use `next/image` with proper `sizes`, meaningful `alt` text (in `docs/content.md
 
 ## Rules
 
-- **Never invent facts, numbers, links or achievements.** Every number comes from `docs/content.md`. No placeholder text on the site (the assignment brief in `docs/ASSIGNMENT.md` forbids it): if something is missing, leave it out or link to the GitHub profile.
+- **Never invent facts, numbers, links or achievements.** Every number comes from `docs/content.md`. No placeholder text on the site: if something is missing, leave it out or link to the GitHub profile.
 - Keep text short. The design works because it says little. Don't add sections, taglines, testimonials, skill bars, badges, icons, emoji, gradients, glassmorphism, rounded cards or stock imagery.
 - Greyscale only. No accent colour.
 - Accessibility: semantic HTML, one `h1` per page, real `<button>`/`<a>`, visible focus ring (1px `--strong` outline, offset 3px), touch targets ≥ 44px, text contrast ≥ 4.5:1, `aria-pressed` on theme buttons, skip-to-content link.
