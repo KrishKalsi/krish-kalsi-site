@@ -1,5 +1,7 @@
 # Krish Kalsi — personal website
 
+**Live:** https://krishkalsi.vercel.app
+
 Portfolio site built with Next.js (App Router, JavaScript), Tailwind CSS and next-themes.
 The design rules are in `CLAUDE.md`; all site copy is in `docs/content.md`.
 

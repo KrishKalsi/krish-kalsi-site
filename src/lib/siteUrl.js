@@ -1,8 +1,9 @@
 // Absolute origin for canonical URLs, the sitemap, robots.txt and OG images.
-// Set NEXT_PUBLIC_SITE_URL once the domain is chosen; until then Vercel's
-// production URL is used, and localhost in development.
-const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+// Production builds use the live address; NEXT_PUBLIC_SITE_URL overrides it,
+// and development uses localhost.
+const PRODUCTION_URL = "https://krishkalsi.vercel.app";
 
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? (vercel ? `https://${vercel}` : "http://localhost:3000")
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.NODE_ENV === "production" ? PRODUCTION_URL : "http://localhost:3000")
 ).replace(/\/$/, "");
